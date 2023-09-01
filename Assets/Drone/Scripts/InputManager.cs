@@ -10,9 +10,14 @@ public class InputManager : MonoBehaviour
     private float _pedals;
     private float _throttle;
 
+    private float _loaded;
+
+
     public Vector2 Cyclic => _cyclic;
     public float Pedals => _pedals;
     public float Throttle => _throttle;
+    public float Loaded => _loaded;
+
 
     #endregion
 
@@ -31,7 +36,6 @@ public class InputManager : MonoBehaviour
     private void OnCyclic(InputValue value)
     {
         _cyclic = value.Get<Vector2>();
-        Debug.Log(_cyclic);
 
     }
 
@@ -44,7 +48,10 @@ public class InputManager : MonoBehaviour
     {
         _throttle = value.Get<float>();
     }
-    #endregion
 
-    
+    private void OnLoadCargo(InputValue value){
+        _loaded = value.Get<float>();
+    }
+
+    #endregion
 }

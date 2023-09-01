@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
 [RequireComponent(typeof(InputManager))]
 public class DroneController : RigidBodyManager
 {
@@ -11,7 +12,7 @@ public class DroneController : RigidBodyManager
     [SerializeField] private float minMaxPitch = 30;
     [SerializeField] private float minMaxRoll = 30;
     [SerializeField] private float yawPower = 4;
-    [SerializeField] private float lerpSpeed = 2;
+    [SerializeField] private float lerpSpeed = 1;
     private InputManager input;
     private List<IEngine> _engines = new List<IEngine>();
 
@@ -19,6 +20,11 @@ public class DroneController : RigidBodyManager
     private float _finalRoll;
     private float _finalYaw;
     private float yaw;
+    [SerializeField] Transform holdArea;
+    private GameObject heldObj;
+    public Rigidbody heldObjRB;
+    [SerializeField] private float pickupRange = 10.0f;
+    [SerializeField] private float pickupForce = 150.0f;
 
     #endregion
 
@@ -39,11 +45,12 @@ public class DroneController : RigidBodyManager
     {
         HandleEngines();
         HandleControls();
+        HandleLoad();
     }
 
     protected virtual void HandleControls()
     {
-        float pitch = input.Cyclic.y * minMaxPitch; // ranged from - minMaxPitch to +minMaxPitch
+        float pitch = input.Cyclic.y * minMaxPitch;
         float roll = -input.Cyclic.x * minMaxRoll;
         yaw += input.Pedals * yawPower;
 
@@ -62,7 +69,49 @@ public class DroneController : RigidBodyManager
             engine.UpdateEngine(_rb, input);
         }
     }
-    #endregion
 
+    protected virtual void HandleLoad(){
+        if(input.Loaded > 0 && heldObj == null){
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, pickupRange)){
+                PickUpObject(hit.transform.gameObject);
+            }
+        }
+        else if (input.Loaded < 0 && heldObj != null){
+            DropObject();
+        }
+
+        if(heldObj!=null){
+            MoveObject();
+        }
+    }
+
+    void PickUpObject(GameObject pickedObj){
+        Debug.Log("Pid Object");
+        if(pickedObj.GetComponent<Rigidbody>()){
+            Debug.Log("Picked Object");
+            heldObjRB =  pickedObj.GetComponent<Rigidbody>();
+            heldObjRB.drag = 05;
+            heldObjRB.constraints= RigidbodyConstraints.FreezeRotation;
+            heldObjRB.transform.parent = holdArea;
+            heldObj = pickedObj;
+        }
+    }
+
+    void MoveObject(){
+        if(Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f){
+            Vector3 moveDir = (holdArea.position - heldObj.transform.position);
+            heldObjRB.AddForce(moveDir * pickupForce);
+        }
+    }
+
+    void DropObject(){
+        heldObjRB.drag = 1;
+        heldObjRB.constraints= RigidbodyConstraints.None;
+        heldObjRB.transform.parent = null;
+        heldObj = null;
+    }
+
+    #endregion
 
 }
