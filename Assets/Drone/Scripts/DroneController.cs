@@ -14,6 +14,7 @@ public class DroneController : RigidBodyManager
     [SerializeField] private float yawPower = 4;
     [SerializeField] private float lerpSpeed = 1;
     private InputManager input;
+    private TutorialManager tutorial;
     private List<IEngine> _engines = new List<IEngine>();
 
     private float _finalPitch;
@@ -33,6 +34,7 @@ public class DroneController : RigidBodyManager
     // Start is called before the first frame update
     void Start()
     {
+        tutorial = FindObjectOfType<TutorialManager>();
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
     }
@@ -57,7 +59,19 @@ public class DroneController : RigidBodyManager
         _finalPitch = Mathf.Lerp(_finalPitch, pitch, lerpSpeed * Time.deltaTime);
         _finalRoll = Mathf.Lerp(_finalRoll, roll, lerpSpeed * Time.deltaTime);
         _finalYaw = Mathf.Lerp(_finalYaw, yaw, lerpSpeed * Time.deltaTime);
-
+        if(!tutorial.CanMoveForward()){
+            _finalPitch = 0;
+        }
+        if(!tutorial.CanMoveLeftRight()){
+            _finalRoll = 0;
+        }
+        if(!tutorial.CanMoveInCyclic()){
+            _finalYaw = 0;
+        }
+    
+        //pitch = move Forward
+        //finalRoll = move left/right
+        //yaw = rotate right/left
         Quaternion rot = Quaternion.Euler(_finalPitch, _finalYaw, _finalRoll);
         _rb.MoveRotation(rot);
     }

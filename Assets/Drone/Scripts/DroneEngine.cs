@@ -43,7 +43,7 @@ public class DroneEngine : MonoBehaviour,IEngine
         {
             return;
         }
-        if (Physics.Raycast(transform.position, Vector3.down, 0.1f, LayerMask.GetMask("Ground")))
+        if (Physics.Raycast(transform.position, Vector3.down, 0.15f, LayerMask.GetMask("Ground")))
         {
             propRotSpeed = Mathf.Lerp(propRotSpeed, 0, 4 * Time.deltaTime);
         }
