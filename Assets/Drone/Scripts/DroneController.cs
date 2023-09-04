@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(InputManager))]
 public class DroneController : RigidBodyManager
@@ -59,16 +60,17 @@ public class DroneController : RigidBodyManager
         _finalPitch = Mathf.Lerp(_finalPitch, pitch, lerpSpeed * Time.deltaTime);
         _finalRoll = Mathf.Lerp(_finalRoll, roll, lerpSpeed * Time.deltaTime);
         _finalYaw = Mathf.Lerp(_finalYaw, yaw, lerpSpeed * Time.deltaTime);
-        if(!tutorial.CanMoveForward()){
-            _finalPitch = 0;
+        if (SceneManager.GetActiveScene().name == "TrainingGround"){
+            if(!tutorial.CanMoveForward()){
+                _finalPitch = 0;
+            }
+            if(!tutorial.CanMoveLeftRight()){
+                _finalRoll = 0;
+            }
+            if(!tutorial.CanMoveInCyclic()){
+                _finalYaw = 0;
+            }
         }
-        if(!tutorial.CanMoveLeftRight()){
-            _finalRoll = 0;
-        }
-        if(!tutorial.CanMoveInCyclic()){
-            _finalYaw = 0;
-        }
-    
         //pitch = move Forward
         //finalRoll = move left/right
         //yaw = rotate right/left
