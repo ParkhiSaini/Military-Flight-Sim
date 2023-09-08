@@ -11,13 +11,14 @@ public class InputManager : MonoBehaviour
     private float _throttle;
 
     private float _loaded;
+    private float _skipTutorial;
 
 
     public Vector2 Cyclic => _cyclic;
     public float Pedals => _pedals;
     public float Throttle => _throttle;
     public float Loaded => _loaded;
-
+    public float SkipTutorial => _skipTutorial;
 
     #endregion
 
@@ -51,6 +52,11 @@ public class InputManager : MonoBehaviour
 
     private void OnLoadCargo(InputValue value){
         _loaded = value.Get<float>();
+    }
+
+    private void OnSkipTut(InputValue value){
+        _skipTutorial = value.Get<float>();
+        Debug.Log("Skip tutorial: " + _skipTutorial);
     }
 
     #endregion

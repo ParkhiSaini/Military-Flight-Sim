@@ -10,18 +10,25 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] popUps;
     private int popUpIndex;
     public InputManager input;
+    private GameManager gameManager;
 
     [SerializeField] private bool canMoveForward;
     [SerializeField] private bool canMoveInCyclic;
     [SerializeField] private bool canMoveLeftRight;
 
     #endregion
+
+    #region Main Methods
+
+    private void Start(){
+        gameManager = GameManager.instance;
+    }
     private void Update()
     {
         ManagePopUps();
     }
 
-    private void ManagePopUps(){
+    public void ManagePopUps(){
         for (int i = 0; i < popUps.Length; i++)
         {
             popUps[i].SetActive(i == popUpIndex);
@@ -57,10 +64,15 @@ public class TutorialManager : MonoBehaviour
                 if (canMoveLeftRight && Mathf.Abs(input.Cyclic.x) > 0.001f)
                 {
                     popUpIndex++;
+                    if(input.SkipTutorial > 0.5f){
+                        gameManager.OnTutEnd();
+                    }
                 }
                 break;
         }
     }
+
+    #endregion
 
     #region getters
     public bool CanMoveForward()
