@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Start(){
         gameManager = GameManager.instance;
+        input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
     }
     private void Update()
     {
@@ -64,9 +65,12 @@ public class TutorialManager : MonoBehaviour
                 if (canMoveLeftRight && Mathf.Abs(input.Cyclic.x) > 0.001f)
                 {
                     popUpIndex++;
-                    if(input.SkipTutorial > 0.5f){
-                        gameManager.OnTutEnd();
-                    }
+                }
+                break;
+            case 4:
+                if (popUpIndex == 4 && input.SkipTutorial == 1.0f){
+                    popUpIndex++;
+                    gameManager.OnTutEnd();
                 }
                 break;
         }

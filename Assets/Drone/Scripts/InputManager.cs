@@ -56,7 +56,6 @@ public class InputManager : MonoBehaviour
 
     private void OnSkipTut(InputValue value){
         _skipTutorial = value.Get<float>();
-        Debug.Log("Skip tutorial: " + _skipTutorial);
     }
 
     #endregion
