@@ -10,11 +10,11 @@ public class TutorialManager : MonoBehaviour
     public GameObject[] popUps;
     private int popUpIndex;
     public InputManager input;
-    private GameManager gameManager;
-
     [SerializeField] private bool canMoveForward;
     [SerializeField] private bool canMoveInCyclic;
     [SerializeField] private bool canMoveLeftRight;
+    private GameManager gameManager;
+
 
     #endregion
 
@@ -70,7 +70,7 @@ public class TutorialManager : MonoBehaviour
             case 4:
                 if (popUpIndex == 4 && input.SkipTutorial == 1.0f){
                     popUpIndex++;
-                    gameManager.OnTutEnd();
+                    gameManager.LoadLevel(1);
                 }
                 break;
         }

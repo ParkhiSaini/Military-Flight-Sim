@@ -28,27 +28,22 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int levelIndex)
     {
-        SceneManager.LoadScene(levelIndex);
-        if(levelIndex != 0){
-            InitializeMissionsForLevel(levelIndex);
-        }
+        var loadLevel = SceneManager.LoadSceneAsync(levelIndex);
+        loadLevel.completed += (x) => {
+        InitializeMissionsForLevel(levelIndex);
+        };
     }
 
     private void InitializeMissionsForLevel(int levelIndex)
     {
         switch (levelIndex)
         {
-            case 0:
+            case 1:
                 B1MissionManager b1MissionManager;
                 b1MissionManager = GameObject.Find("MissionManager").GetComponent<B1MissionManager>();
                 b1MissionManager.InitializeReferences();
                 StartCoroutine(b1MissionManager.StartCountdown());
                 break;
         }
-    }
-
-
-    public void OnTutEnd(){
-        InitializeMissionsForLevel(0);
     }
 }
