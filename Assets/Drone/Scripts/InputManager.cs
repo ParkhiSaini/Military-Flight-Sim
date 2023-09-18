@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
 
     private float _loaded;
     private float _skipTutorial;
+    private float _pause;
 
 
     public Vector2 Cyclic => _cyclic;
@@ -19,6 +20,7 @@ public class InputManager : MonoBehaviour
     public float Throttle => _throttle;
     public float Loaded => _loaded;
     public float SkipTutorial => _skipTutorial;
+    public float Pause => _pause;
 
     #endregion
 
@@ -56,6 +58,11 @@ public class InputManager : MonoBehaviour
 
     private void OnSkipTut(InputValue value){
         _skipTutorial = value.Get<float>();
+    }
+
+    private void OnPause(InputValue value)
+    {
+        _pause = value.Get<float>();
     }
 
     #endregion
