@@ -14,6 +14,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private bool canMoveInCyclic;
     [SerializeField] private bool canMoveLeftRight;
     private GameManager gameManager;
+  
 
 
     #endregion

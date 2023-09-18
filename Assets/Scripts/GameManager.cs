@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int currentLevel = 0;
-
+    public B1MissionManager missionManager;
 
     private void Awake()
     {
@@ -46,4 +46,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    
+
+    
 }
