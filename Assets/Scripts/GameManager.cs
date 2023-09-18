@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int currentLevel = 0;
     public B1MissionManager missionManager;
+    public AudioSource bgMusic;
+    // public AudioSource buttonSound;
 
     private void Awake()
     {
@@ -46,7 +48,20 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    
+
+    private void PauseMusic()
+    {
+        if (missionManager.paused)
+        {
+            bgMusic.Play();
+        }
+    }
+
+    // public void OnButtonSound()
+    // {
+    //     buttonSound.PlayOneShot(buttonSound.clip);
+    // }
+
 
     
 }

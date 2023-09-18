@@ -23,6 +23,7 @@ public class B1MissionManager : MonoBehaviour
     public BeginnerMission beginnerMission;
     public GameObject[] rings;
     private Transform grandChildTransform;
+    public bool paused =false;
 
     // Timer variables
     private bool missionStarted = false;
@@ -59,6 +60,7 @@ public class B1MissionManager : MonoBehaviour
         if (input.Pause == 1.0f)
         {
             Pause();
+
         }
 
         MissionEnded();
@@ -127,8 +129,9 @@ public class B1MissionManager : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
+        paused = true;
         PausePanel.gameObject.SetActive(true);
     }
 }
