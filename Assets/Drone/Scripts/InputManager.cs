@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     private float _loaded;
     private float _skipTutorial;
     private float _pause;
+    
 
 
     public Vector2 Cyclic => _cyclic;
