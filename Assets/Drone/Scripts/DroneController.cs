@@ -27,6 +27,8 @@ public class DroneController : RigidBodyManager
     public Rigidbody heldObjRB;
     [SerializeField] private float pickupRange = 10.0f;
     [SerializeField] private float pickupForce = 150.0f;
+    private AudioSource droneSound;
+
 
     #endregion
 
@@ -38,6 +40,7 @@ public class DroneController : RigidBodyManager
         tutorial = FindObjectOfType<TutorialManager>();
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
+        droneSound = gameObject.transform.Find("DroneSound").GetComponent<AudioSource>();
     }
 
     #endregion
@@ -49,6 +52,7 @@ public class DroneController : RigidBodyManager
         HandleEngines();
         HandleControls();
         HandleLoad();
+        DroneSound();
     }
 
     protected virtual void HandleControls()
@@ -126,6 +130,16 @@ public class DroneController : RigidBodyManager
         heldObjRB.constraints= RigidbodyConstraints.None;
         heldObjRB.transform.parent = null;
         heldObj = null;
+    }
+
+    void DroneSound(){
+        droneSound.pitch = 1 + (_rb.velocity.magnitude/100);
+        if(_finalPitch != 0 || _finalRoll != 0){
+            droneSound.volume = 0.5f;
+        }
+        else{
+            droneSound.volume = 0.1f;
+        }
     }
 
     #endregion
