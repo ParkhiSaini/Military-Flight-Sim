@@ -25,8 +25,8 @@ public class DroneController : RigidBodyManager
     [SerializeField] Transform holdArea;
     private GameObject heldObj;
     public Rigidbody heldObjRB;
-    [SerializeField] private float pickupRange = 10.0f;
-    [SerializeField] private float pickupForce = 150.0f;
+    [SerializeField] private float pickupRange = 3.0f;
+    // [SerializeField] private float pickupForce = 150.0f;
     private AudioSource droneSound;
 
 
@@ -108,25 +108,30 @@ public class DroneController : RigidBodyManager
 
     void PickUpObject(GameObject pickedObj){
         Debug.Log("Pid Object");
-        if(pickedObj.GetComponent<Rigidbody>()){
+        if(pickedObj.GetComponent<Rigidbody>() && pickedObj.tag == "Cube"){
             Debug.Log("Picked Object");
             heldObjRB =  pickedObj.GetComponent<Rigidbody>();
-            heldObjRB.drag = 05;
-            heldObjRB.constraints= RigidbodyConstraints.FreezeRotation;
+            heldObjRB.drag = 10;
+            heldObjRB.useGravity = false;
+            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
             heldObjRB.transform.parent = holdArea;
             heldObj = pickedObj;
         }
     }
 
     void MoveObject(){
-        if(Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f){
-            Vector3 moveDir = (holdArea.position - heldObj.transform.position);
-            heldObjRB.AddForce(moveDir * pickupForce);
-        }
+        // if(Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f){
+        //     Vector3 moveDir = (holdArea.position - heldObj.transform.position);
+        //     heldObjRB.AddForce(moveDir * pickupForce);
+        // }
+        Vector3 desiredPosition = holdArea.position;
+        heldObjRB.MovePosition(desiredPosition);
     }
 
     void DropObject(){
+        Debug.Log("Drop Object");
         heldObjRB.drag = 1;
+        heldObjRB.useGravity = true;
         heldObjRB.constraints= RigidbodyConstraints.None;
         heldObjRB.transform.parent = null;
         heldObj = null;
