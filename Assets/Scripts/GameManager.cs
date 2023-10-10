@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int currentLevel = 0;
+    public int currentLevel = 1;
     public B1MissionManager missionManager;
     public AudioSource bgMusic;
     // public AudioSource buttonSound;
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         switch (levelIndex)
         {
-            case 1:
+            case 2:
                 B1MissionManager b1MissionManager;
                 b1MissionManager = GameObject.Find("MissionManager").GetComponent<B1MissionManager>();
                 b1MissionManager.InitializeReferences();

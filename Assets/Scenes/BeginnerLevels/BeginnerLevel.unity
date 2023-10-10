@@ -3159,28 +3159,28 @@ MonoBehaviour:
   rings:
   - {fileID: 703056690}
   - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
-  - {fileID: 1426219747}
+  - {fileID: 1694508201}
+  - {fileID: 1712557726}
+  - {fileID: 1606256129}
+  - {fileID: 1388260671}
+  - {fileID: 764208235}
+  - {fileID: 1775665985}
+  - {fileID: 1763455260}
+  - {fileID: 975243559}
+  - {fileID: 1640725515}
+  - {fileID: 832978331}
+  - {fileID: 1860677950}
+  - {fileID: 1714925773}
+  - {fileID: 149625550}
+  - {fileID: 1994731366}
+  - {fileID: 376685936}
+  - {fileID: 457089415}
+  - {fileID: 334341039}
+  - {fileID: 1157934662}
+  - {fileID: 1639817143}
+  - {fileID: 360954654}
+  - {fileID: 321434339}
+  - {fileID: 1419640950}
   paused: 0
 --- !u!4 &542556927
 Transform:
@@ -4424,7 +4424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04aa0cddb8ba30c4f9a2ee2025366eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 2
   missionManager: {fileID: 542556926}
   bgMusic: {fileID: 1293938011}
 --- !u!4 &918555996
@@ -7803,7 +7803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1654731571
 RectTransform:
   m_ObjectHideFlags: 0

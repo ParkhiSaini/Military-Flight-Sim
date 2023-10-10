@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
             case 4:
                 if (popUpIndex == 4 && input.SkipTutorial == 1.0f){
                     popUpIndex++;
-                    gameManager.LoadLevel(1);
+                    gameManager.LoadLevel(2);
                 }
                 break;
         }
