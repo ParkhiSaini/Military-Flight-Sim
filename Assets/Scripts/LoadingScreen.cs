@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class LoadingScreen : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider loadingBar;
     public TextMeshProUGUI progressText;
     public TextMeshProUGUI progressPercent;
+    public float minLoadTime=3f;
 
     public void LoadLevel(int sceneIndex)
     {
@@ -21,6 +23,8 @@ public class LoadingScreen : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         loadingScreen.SetActive(true);
 
+        yield return new WaitForSeconds(minLoadTime);
+        
         while(!operation.isDone){
             float progress = Mathf.Clamp01(operation.progress / .9f);
             loadingBar.value = progress;
@@ -29,7 +33,7 @@ public class LoadingScreen : MonoBehaviour
                 progressText.text = "Initializing Sequence...";
             }
             else if(progress < 0.5f && progress > 0.2f){
-                progressText.text = "Refuling Drone...";
+                progressText.text = "Refueling Drone...";
             }
             else if(progress < 0.9f && progress > 0.5f){
                 progressText.text = "Collecting Data for Mission...";
