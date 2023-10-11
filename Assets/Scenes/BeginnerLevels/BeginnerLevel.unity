@@ -4653,6 +4653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaunchPad
       objectReference: {fileID: 0}
+    - target: {fileID: 9090438422152421193, guid: a213cc8f6d05a4e4c9e3b426a4ef8867,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f4bd8237c3762a4eb4dbadecf2d6d22, type: 2}
     - target: {fileID: 9090438422152421195, guid: a213cc8f6d05a4e4c9e3b426a4ef8867,
         type: 3}
       propertyPath: m_RootOrder
@@ -7936,6 +7941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaunchPad (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9090438422152421193, guid: a213cc8f6d05a4e4c9e3b426a4ef8867,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8f4bd8237c3762a4eb4dbadecf2d6d22, type: 2}
     - target: {fileID: 9090438422152421195, guid: a213cc8f6d05a4e4c9e3b426a4ef8867,
         type: 3}
       propertyPath: m_RootOrder
@@ -9000,7 +9010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 66.099976, y: 13.800018}
+  m_AnchoredPosition: {x: 66.099976, y: 13.800049}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1972613992
