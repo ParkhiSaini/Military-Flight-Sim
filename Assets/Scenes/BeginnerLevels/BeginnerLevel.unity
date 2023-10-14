@@ -5607,7 +5607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1293938008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7941,11 +7941,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaunchPad (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 9090438422152421193, guid: a213cc8f6d05a4e4c9e3b426a4ef8867,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8f4bd8237c3762a4eb4dbadecf2d6d22, type: 2}
     - target: {fileID: 9090438422152421195, guid: a213cc8f6d05a4e4c9e3b426a4ef8867,
         type: 3}
       propertyPath: m_RootOrder
@@ -8815,7 +8810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1926802396
 RectTransform:
   m_ObjectHideFlags: 0
