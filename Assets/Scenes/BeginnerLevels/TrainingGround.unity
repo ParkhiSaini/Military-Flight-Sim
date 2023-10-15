@@ -768,7 +768,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 6.199951}
-  m_SizeDelta: {x: 1040, y: 135.83}
+  m_SizeDelta: {x: 1006.2, y: 49.48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &513049992
 MonoBehaviour:
@@ -845,7 +845,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 6.199951}
-  m_SizeDelta: {x: 1040, y: 135.83}
+  m_SizeDelta: {x: 1006.2, y: 49.48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &522852404
 MonoBehaviour:
@@ -1118,6 +1118,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlackFade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727451150719533385, guid: 351cd5da32cc7524f9acba866597c4ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7727451150719533390, guid: 351cd5da32cc7524f9acba866597c4ad,
         type: 3}
@@ -2016,7 +2021,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 6.199951}
-  m_SizeDelta: {x: 1040, y: 135.83}
+  m_SizeDelta: {x: 1006.2, y: 49.48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1347988224
 MonoBehaviour:
@@ -2933,7 +2938,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 6.199951}
-  m_SizeDelta: {x: 1040, y: 135.83}
+  m_SizeDelta: {x: 1006.2, y: 49.48}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1983851313
 MonoBehaviour:
