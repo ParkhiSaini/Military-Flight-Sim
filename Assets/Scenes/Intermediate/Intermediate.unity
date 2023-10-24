@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 141632427}
   - component: {fileID: 141632426}
   m_Layer: 0
-  m_Name: MissionMaager
+  m_Name: MissionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
