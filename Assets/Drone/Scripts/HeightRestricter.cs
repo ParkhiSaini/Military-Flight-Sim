@@ -56,5 +56,6 @@ public class HeightRestricter : MonoBehaviour
     public void Update()
     {
         HeightLimit();
+        mapRestrictor();
     }
 }

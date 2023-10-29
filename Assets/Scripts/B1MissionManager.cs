@@ -107,7 +107,6 @@ public class B1MissionManager : MonoBehaviour
 
     public void MissionEnded()
     {
-        Debug.Log("Distance: " + Vector3.Distance(drone.transform.position, landingPad.transform.position));
         if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 2)
         {
             Debug.Log("Mission Completed");

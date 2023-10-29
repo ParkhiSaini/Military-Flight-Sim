@@ -1392,8 +1392,8 @@ MonoBehaviour:
   finalWarning: {fileID: 1117602254}
   positiveXLimit: -80
   negativeXLimit: -250
-  positiveZLimit: 1600
-  negativeZLimit: 1750
+  positiveZLimit: 1750
+  negativeZLimit: 1400
 --- !u!4 &175415984
 Transform:
   m_ObjectHideFlags: 0

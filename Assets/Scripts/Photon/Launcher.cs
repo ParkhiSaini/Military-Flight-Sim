@@ -37,11 +37,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        // if (PlayFabLogin.Instance != null)
-        // {
-        //     string playerName = PlayFabLogin.Instance.usernameInputField.text;
-        //     PhotonNetwork.NickName = playerName;
-        // }
+        if (PlayFabLogin.Instance != null)
+        {
+            string playerName = PlayFabLogin.Instance.usernameInputField.text;
+            PhotonNetwork.NickName = playerName;
+        }
         
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
@@ -63,11 +63,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("room");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
-        // Player[] players = PhotonNetwork.PlayerList;
-        // for (int i = 0; i < players.Count(); i++)
-        // {
-        //     Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
-        // }
+        Player[] players = PhotonNetwork.PlayerList;
+        for (int i = 0; i < players.Count(); i++)
+        {
+            Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
+        }
 
 
     }
@@ -111,9 +111,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
     }
 
-    // public override void OnPlayerEnteredRoom(Player newPlayer)
-    // {
-    //     Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
-    // }
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+    }
 
 }

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int currentLevel = 1;
     public B1MissionManager missionManager;
+    public IntermediateMissionManager intermediateMissionManager;
     public AudioSource bgMusic;
     // public AudioSource buttonSound;
 
@@ -45,6 +46,12 @@ public class GameManager : MonoBehaviour
                 b1MissionManager = GameObject.Find("MissionManager").GetComponent<B1MissionManager>();
                 b1MissionManager.InitializeReferences();
                 StartCoroutine(b1MissionManager.StartCountdown());
+                break;
+            case 3:
+                IntermediateMissionManager intermediateMissionManager;
+                intermediateMissionManager = GameObject.Find("MissionManager").GetComponent<IntermediateMissionManager>();
+                intermediateMissionManager.InitializeReferences();
+                StartCoroutine(intermediateMissionManager.StartCountdown());
                 break;
         }
     }
