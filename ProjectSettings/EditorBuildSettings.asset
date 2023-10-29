@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intermediate/Intermediate.unity
     guid: c6289e852c78a834a89b267a9b144cbd
+  - enabled: 1
+    path: Assets/Scenes/Photon/RoomMenu.unity
+    guid: b30bd5a42ececb4438f21d26e758f5a6
   m_configObjects: {}

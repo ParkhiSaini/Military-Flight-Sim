@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Photon.Realtime;
+using System.Linq;
+
 public class Launcher : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField roomNameInputField;
     public static Launcher Instance;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
+    [SerializeField] Transform roomListContent;
+    [SerializeField] GameObject roomListItemPrefab;
+    [SerializeField] Transform playerListContent;
+    [SerializeField] GameObject PlayerListItemPrefab;
 
     void Awake()
     {
@@ -30,8 +37,15 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        // if (PlayFabLogin.Instance != null)
+        // {
+        //     string playerName = PlayFabLogin.Instance.usernameInputField.text;
+        //     PhotonNetwork.NickName = playerName;
+        // }
+        
         MenuManager.Instance.OpenMenu("title");
-        Debug.Log("Joined Lobby");   
+        Debug.Log("Joined Lobby");
+
     }
 
     public void CreateRoom()
@@ -49,6 +63,12 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("room");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
+        // Player[] players = PhotonNetwork.PlayerList;
+        // for (int i = 0; i < players.Count(); i++)
+        // {
+        //     Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
+        // }
+
 
     }
 
@@ -58,4 +78,42 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("error");
 
     }
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        MenuManager.Instance.OpenMenu("loading");
+    }
+
+    public void JoinRoom(RoomInfo info)
+    {
+        PhotonNetwork.JoinRoom(info.Name);
+        MenuManager.Instance.OpenMenu("loading");
+    }
+
+    public override void OnLeftRoom()
+    {
+        MenuManager.Instance.OpenMenu("title");
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (Transform trans in roomListContent)
+        {
+            Destroy(trans.gameObject);
+        }
+
+        for (int i = 0; i < roomList.Count; i++)
+        {
+            // if (roomList[i].RemovedFromList)
+            //     continue;
+            Instantiate(roomListItemPrefab,  roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+        }
+    }
+
+    // public override void OnPlayerEnteredRoom(Player newPlayer)
+    // {
+    //     Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+    // }
+
 }
