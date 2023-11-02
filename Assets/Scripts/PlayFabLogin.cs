@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayFabLogin : MonoBehaviour
 {
     [SerializeField] private GameObject CreateAccountDisplay = default;
-    [SerializeField] public TMP_InputField usernameInputField = default;
-    [SerializeField] private TMP_InputField emailInputField = default;
-    [SerializeField] private TMP_InputField passwordInputField = default;
+    [SerializeField] public TMP_InputField reg_usernameInputField = default;
+    [SerializeField] private TMP_InputField reg_emailInputField = default;
+    [SerializeField] private TMP_InputField reg_passwordInputField = default;
+    [SerializeField] public TMP_InputField log_usernameInputField = default;
+    [SerializeField] private TMP_InputField log_passwordInputField = default;
     [SerializeField] private GameObject signinDisplay ;
     public static string SessionTicket;
     public static string EntityId;
@@ -33,9 +35,9 @@ public class PlayFabLogin : MonoBehaviour
     {
         PlayFabClientAPI.RegisterPlayFabUser(new RegisterPlayFabUserRequest
         {
-            Username = usernameInputField.text,
-            Email = emailInputField.text,
-            Password = passwordInputField.text
+            Username = reg_usernameInputField.text,
+            Email = reg_emailInputField.text,
+            Password = reg_passwordInputField.text
         }, result =>
         {
             SessionTicket = result.SessionTicket;
@@ -52,8 +54,8 @@ public class PlayFabLogin : MonoBehaviour
     {
         PlayFabClientAPI.LoginWithPlayFab(new LoginWithPlayFabRequest
         {
-            Username = usernameInputField.text,
-            Password = passwordInputField.text
+            Username = log_usernameInputField.text,
+            Password = log_passwordInputField.text
         }, result =>
         {
             SessionTicket = result.SessionTicket;

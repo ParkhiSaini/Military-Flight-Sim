@@ -4408,10 +4408,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ring target 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1844236073924174, guid: 1a221163dbec9594194ddda87f3476e6, type: 3}
-      propertyPath: m_TagString
-      value: Ring
-      objectReference: {fileID: 0}
     - target: {fileID: 4075763311697458, guid: 1a221163dbec9594194ddda87f3476e6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4464,20 +4460,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 703056689}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &703056691
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703056690}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.57
-  m_Height: 0.07
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &703056694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4075763311697458, guid: 1a221163dbec9594194ddda87f3476e6,
@@ -5568,6 +5550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 2
   missionManager: {fileID: 542556926}
+  intermediateMissionManager: {fileID: 0}
   bgMusic: {fileID: 1293938011}
 --- !u!4 &918555996
 Transform:

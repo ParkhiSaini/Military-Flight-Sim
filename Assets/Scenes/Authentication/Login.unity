@@ -2181,9 +2181,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreateAccountDisplay: {fileID: 22294890}
-  usernameInputField: {fileID: 1787068092}
-  emailInputField: {fileID: 76580539}
-  passwordInputField: {fileID: 1223485298}
+  reg_usernameInputField: {fileID: 1787068092}
+  reg_emailInputField: {fileID: 76580539}
+  reg_passwordInputField: {fileID: 1223485298}
+  log_usernameInputField: {fileID: 1120193881}
+  log_passwordInputField: {fileID: 747265518}
   signinDisplay: {fileID: 1655403663}
 --- !u!4 &913641224
 Transform:

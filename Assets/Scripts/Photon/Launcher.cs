@@ -42,7 +42,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         if (PlayFabLogin.Instance != null)
         {
-            string playerName = PlayFabLogin.Instance.usernameInputField.text;
+            string playerName = PlayFabLogin.Instance.log_usernameInputField.text;
             PhotonNetwork.NickName = playerName;
         }
         
