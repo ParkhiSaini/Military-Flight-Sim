@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
 public class MainMenu : MonoBehaviour
 {
     
@@ -45,7 +46,12 @@ public class MainMenu : MonoBehaviour
     }
 
     public void StartDrone(){
-        UnityEngine.SceneManagement.SceneManager.LoadScene("TrainingGround");
+       UnityEngine.SceneManagement.SceneManager.LoadScene("TrainingGround");
+    }
+
+    public void MultiplayerMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("RoomMenu");
     }
 
 }

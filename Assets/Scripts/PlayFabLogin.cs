@@ -3,13 +3,14 @@ using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class PlayFabLogin : MonoBehaviour
 {
-    [SerializeField] private GameObject signInDisplay = default;
+    [SerializeField] private GameObject CreateAccountDisplay = default;
     [SerializeField] public TMP_InputField usernameInputField = default;
     [SerializeField] private TMP_InputField emailInputField = default;
     [SerializeField] private TMP_InputField passwordInputField = default;
-
+    [SerializeField] private GameObject signinDisplay ;
     public static string SessionTicket;
     public static string EntityId;
 
@@ -39,7 +40,8 @@ public class PlayFabLogin : MonoBehaviour
         {
             SessionTicket = result.SessionTicket;
             EntityId = result.EntityToken.Entity.Id;
-            signInDisplay.SetActive(false);
+            CreateAccountDisplay.SetActive(false);
+            signinDisplay.SetActive(true);
         }, error =>
         {
             Debug.LogError(error.GenerateErrorReport());
@@ -56,11 +58,17 @@ public class PlayFabLogin : MonoBehaviour
         {
             SessionTicket = result.SessionTicket;
             EntityId = result.EntityToken.Entity.Id;
-            signInDisplay.SetActive(false);
-            SceneManager.LoadScene("RoomMenu");
+            signinDisplay.SetActive(false);
+            SceneManager.LoadScene("MainMenu");
         }, error =>
         {
             Debug.LogError(error.GenerateErrorReport());
         });
+    }
+
+    public void HaveAnAccount()
+    {
+        CreateAccountDisplay.SetActive(false);
+        signinDisplay.SetActive(true);
     }
 }
