@@ -10,11 +10,12 @@ public class PlayFabLogin : MonoBehaviour
     [SerializeField] public TMP_InputField reg_usernameInputField = default;
     [SerializeField] private TMP_InputField reg_emailInputField = default;
     [SerializeField] private TMP_InputField reg_passwordInputField = default;
-    [SerializeField] public TMP_InputField log_usernameInputField = default;
+    public TMP_InputField log_usernameInputField = default;
     [SerializeField] private TMP_InputField log_passwordInputField = default;
     [SerializeField] private GameObject signinDisplay ;
     public static string SessionTicket;
     public static string EntityId;
+    public static string LoginUsername;
 
     public static PlayFabLogin Instance { get; private set; }
 
@@ -60,6 +61,7 @@ public class PlayFabLogin : MonoBehaviour
         {
             SessionTicket = result.SessionTicket;
             EntityId = result.EntityToken.Entity.Id;
+            LoginUsername = log_usernameInputField.text;
             signinDisplay.SetActive(false);
             SceneManager.LoadScene("MainMenu");
         }, error =>
