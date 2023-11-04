@@ -60,9 +60,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchCamera",
+                    "name": "CamSwitch",
                     "type": "Button",
-                    "id": "22c89cb3-e9ae-4949-a254-1bf83059cad3",
+                    "id": "71410da7-32f1-4299-b286-b9da6c013643",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -391,23 +391,23 @@
                 },
                 {
                     "name": "",
-                    "id": "574314ca-e782-492e-baed-5767ceab016e",
-                    "path": "<XInputController>/buttonNorth",
+                    "id": "2bd32b32-83c3-45cf-ba18-b578e2aec994",
+                    "path": "<XInputController>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchCamera",
+                    "action": "CamSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "9c70c48c-1876-4fa2-9122-96760f1cda96",
-                    "path": "<Keyboard>/c",
+                    "id": "d2fcf6b0-2445-4d43-9dc2-3082086fb2a8",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchCamera",
+                    "action": "CamSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

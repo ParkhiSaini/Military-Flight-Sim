@@ -13,8 +13,8 @@ public class InputManager : MonoBehaviour
     private float _loaded;
     private float _skipTutorial;
     private float _pause;
-    
 
+    private float _camSwitch;
 
     public Vector2 Cyclic => _cyclic;
     public float Pedals => _pedals;
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
     public float Loaded => _loaded;
     public float SkipTutorial => _skipTutorial;
     public float Pause => _pause;
-
+    public float CamSwitch => _camSwitch;
     #endregion
 
     #region Main Methods
@@ -65,6 +65,13 @@ public class InputManager : MonoBehaviour
     {
         _pause = value.Get<float>();
     }
+
+    private void OnCamSwitch(InputValue value)
+    {
+        _camSwitch = value.Get<float>();
+    }
+
+
 
     #endregion
 }

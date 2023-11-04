@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int currentLevel = 1;
     public B1MissionManager missionManager;
+    public InputManager input;
     public IntermediateMissionManager intermediateMissionManager;
     public AudioSource bgMusic;
+    public bool fpscam=false;
     // public AudioSource buttonSound;
 
     private void Awake()
@@ -27,6 +29,19 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadLevel(currentLevel);
+        input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
+    }
+
+    private void Update()
+    {
+        if (input.CamSwitch==1.0f && fpscam==false )
+        {
+            GameObject.Find("FPSCamera").SetActive(true);
+        }
+        else if(input.CamSwitch==1.0f && fpscam==true)
+        {
+            GameObject.Find("FPSCamera").SetActive(false);
+        }
     }
 
     public void LoadLevel(int levelIndex)
@@ -64,10 +79,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // public void OnButtonSound()
-    // {
-    //     buttonSound.PlayOneShot(buttonSound.clip);
-    // }
+
 
     
 
