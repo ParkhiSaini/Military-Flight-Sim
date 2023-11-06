@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadLevel(currentLevel);
-        input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
+        // input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
     }
 
     private void Update()
@@ -56,13 +56,13 @@ public class GameManager : MonoBehaviour
     {
         switch (levelIndex)
         {
-            case 2:
+            case 4:
                 B1MissionManager b1MissionManager;
                 b1MissionManager = GameObject.Find("MissionManager").GetComponent<B1MissionManager>();
                 b1MissionManager.InitializeReferences();
                 StartCoroutine(b1MissionManager.StartCountdown());
                 break;
-            case 3:
+            case 5:
                 IntermediateMissionManager intermediateMissionManager;
                 intermediateMissionManager = GameObject.Find("MissionManager").GetComponent<IntermediateMissionManager>();
                 intermediateMissionManager.InitializeReferences();
