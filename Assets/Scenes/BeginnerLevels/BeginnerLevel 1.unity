@@ -5551,8 +5551,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 2
   missionManager: {fileID: 542556926}
+  input: {fileID: 0}
   intermediateMissionManager: {fileID: 0}
   bgMusic: {fileID: 1293938011}
+  fpscam: 0
 --- !u!4 &918555996
 Transform:
   m_ObjectHideFlags: 0
