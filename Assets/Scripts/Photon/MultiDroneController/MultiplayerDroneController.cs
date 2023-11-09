@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Photon.Pun;
 
 [RequireComponent(typeof(InputManager))]
-public class DroneController : RigidBodyManager
+public class MultiplayerDroneController : MultiRigidBodyManager
 {
     #region Variables
 
@@ -38,14 +38,14 @@ public class DroneController : RigidBodyManager
     #region Main Methods
 
     // Start is called before the first frame update
-
-    void Awake(){
-    }
     void Start()
     {
+        photonView = GetComponent<PhotonView>();
+        cameraHandler = FindObjectOfType<CameraHandler>();
         tutorial = FindObjectOfType<TutorialManager>();
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
+        cameraHandler.SetCameraTarget();
         // droneSound = gameObject.transform.Find("DroneSound").GetComponent<AudioSource>();
     }
 
@@ -55,9 +55,14 @@ public class DroneController : RigidBodyManager
 
     protected override void HandlePhysics()
     {
-        HandleEngines();
-        HandleControls();
-        HandleLoad();
+        if(photonView.IsMine){
+            HandleEngines();
+            HandleControls();
+            HandleLoad();
+        } else{
+            return;
+        }
+        Debug.Log("Handle Physics");
         // DroneSound();
     }
 
@@ -86,6 +91,9 @@ public class DroneController : RigidBodyManager
         //yaw = rotate right/left
         Quaternion rot = Quaternion.Euler(_finalPitch, _finalYaw, _finalRoll);
         _rb.MoveRotation(rot);
+        if(!photonView.IsMine){
+            Destroy(_rb);
+        }
     }
 
     protected virtual void HandleEngines()

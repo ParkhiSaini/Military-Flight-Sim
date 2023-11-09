@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BeginnerLevels/BeginnerLevel 1.unity
     guid: 2700a42ac8ebdb34590ccda559caf944
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 38b53171310b77e408f7c0e2a8a3dfd0
+  - enabled: 1
+    path: Assets/Scenes/Intermediate/MultiplayerScene.unity
+    guid: 17ca863ce14780540b946c1779a5b9ae
   m_configObjects: {}

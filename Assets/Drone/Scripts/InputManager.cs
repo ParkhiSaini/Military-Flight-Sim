@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
     private void OnCyclic(InputValue value)
     {
         _cyclic = value.Get<Vector2>();
-
+            
     }
 
     private void OnPedals(InputValue value)
