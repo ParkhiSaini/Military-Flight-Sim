@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
-using Photon.Pun;
 
 [RequireComponent(typeof(InputManager))]
 public class DroneController : RigidBodyManager
@@ -29,8 +28,6 @@ public class DroneController : RigidBodyManager
     [SerializeField] private float pickupRange = 3.0f;
     // [SerializeField] private float pickupForce = 150.0f;
     private AudioSource droneSound;
-    CameraHandler cameraHandler;
-    PhotonView photonView;
 
 
     #endregion
@@ -38,9 +35,6 @@ public class DroneController : RigidBodyManager
     #region Main Methods
 
     // Start is called before the first frame update
-
-    void Awake(){
-    }
     void Start()
     {
         tutorial = FindObjectOfType<TutorialManager>();
