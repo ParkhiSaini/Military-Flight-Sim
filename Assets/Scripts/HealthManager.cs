@@ -15,7 +15,7 @@ public class HealthManager : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    public  void OnCollisionEner(Collision collision)
+    public  void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Terrain"))
         {

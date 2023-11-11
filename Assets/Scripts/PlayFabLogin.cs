@@ -10,6 +10,7 @@ public class PlayFabLogin : MonoBehaviour
     [SerializeField] public TMP_InputField reg_usernameInputField = default;
     [SerializeField] private TMP_InputField reg_emailInputField = default;
     [SerializeField] private TMP_InputField reg_passwordInputField = default;
+    [SerializeField] private TextMeshProUGUI  errorMessage;
     public TMP_InputField log_usernameInputField = default;
     [SerializeField] private TMP_InputField log_passwordInputField = default;
     [SerializeField] private GameObject signinDisplay ;
@@ -47,6 +48,15 @@ public class PlayFabLogin : MonoBehaviour
             signinDisplay.SetActive(true);
         }, error =>
         {
+            if (error.Error == PlayFabErrorCode.InvalidParams && error.ErrorDetails.ContainsKey("Password"))
+            {
+                errorMessage.text = "Error: Password should be between 6-10 characters.";
+            }
+        
+            else
+            {
+                errorMessage.text = "Error: " + error.ErrorMessage;
+            }
             Debug.LogError(error.GenerateErrorReport());
         });
     }
@@ -66,6 +76,18 @@ public class PlayFabLogin : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }, error =>
         {
+            if (error.Error == PlayFabErrorCode.InvalidParams && error.ErrorDetails.ContainsKey("Username"))
+            {
+                errorMessage.text = "Error: Incorrect username.";
+            }
+            else if (error.Error == PlayFabErrorCode.InvalidParams && error.ErrorDetails.ContainsKey("Password"))
+            {
+                errorMessage.text = "Error: Incorrect password.";
+            }
+            else
+            {
+                errorMessage.text = "Error: " + error.ErrorMessage;
+            }
             Debug.LogError(error.GenerateErrorReport());
         });
     }
