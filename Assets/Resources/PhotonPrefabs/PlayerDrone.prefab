@@ -855,10 +855,10 @@ GameObject:
   - component: {fileID: 2282512394024949233}
   - component: {fileID: 2282512394024949246}
   - component: {fileID: 2282512394024949235}
-  - component: {fileID: 2282512392970492724}
   - component: {fileID: 5065128875055356731}
   - component: {fileID: 130564397}
   - component: {fileID: 1495251420}
+  - component: {fileID: 419996480}
   m_Layer: 0
   m_Name: PlayerDrone
   m_TagString: Player
@@ -955,20 +955,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2282512392970492724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2282512394024949244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e6bf8f49c864b4c958449e21ec97ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoopsScore: 0
-  newColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &5065128875055356731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,7 +975,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1495251420}
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &130564397
@@ -1028,6 +1014,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &419996480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2282512394024949244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20390bab1a640cb4e9a9edfe4db5e770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoopsScore: 0
+  newColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &2282512394296230425
 GameObject:
   m_ObjectHideFlags: 0
