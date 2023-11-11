@@ -46,6 +46,9 @@ public class MultiplayerDroneController : MultiRigidBodyManager
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
         cameraHandler.SetCameraTarget();
+        if(!photonView.IsMine){
+            Destroy(_rb);
+        }
         // droneSound = gameObject.transform.Find("DroneSound").GetComponent<AudioSource>();
     }
 
@@ -86,14 +89,8 @@ public class MultiplayerDroneController : MultiRigidBodyManager
                 _finalYaw = 0;
             }
         }
-        //pitch = move Forward
-        //finalRoll = move left/right
-        //yaw = rotate right/left
         Quaternion rot = Quaternion.Euler(_finalPitch, _finalYaw, _finalRoll);
         _rb.MoveRotation(rot);
-        if(!photonView.IsMine){
-            Destroy(_rb);
-        }
     }
 
     protected virtual void HandleEngines()
