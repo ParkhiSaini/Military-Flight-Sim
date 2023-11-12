@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int currentLevel = 1;
     public B1MissionManager missionManager;
-   
+
     public IntermediateMissionManager intermediateMissionManager;
     public AudioSource bgMusic;
-    
+
+    public GameObject pauseMenu;
+    public InputManager input;
+    public bool paused= false;
 
     private void Awake()
     {
@@ -27,8 +30,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        LoadLevel(currentLevel);
         
+        LoadLevel(currentLevel);
+      
+
+    }
+
+    private void Update()
+    {
+        // if (input.Pause == 1.0f)
+        // {
+        //     PauseMenu();
+
+        // }
     }
 
 
@@ -44,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         switch (levelIndex)
         {
+            
             case 4:
                 B1MissionManager b1MissionManager;
                 b1MissionManager = GameObject.Find("MissionManager").GetComponent<B1MissionManager>();
@@ -66,6 +81,15 @@ public class GameManager : MonoBehaviour
             bgMusic.Play();
         }
     }
+
+    // private void PauseMenu()
+    // {
+    //     paused=true;
+    //     pauseMenu.gameObject.SetActive(true);
+    // }
+
+
+
 
 
 

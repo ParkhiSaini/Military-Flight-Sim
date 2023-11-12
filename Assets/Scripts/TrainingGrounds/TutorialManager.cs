@@ -14,7 +14,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private bool canMoveInCyclic;
     [SerializeField] private bool canMoveLeftRight;
     private GameManager gameManager;
-  
+    public GameObject pauseMenu;
 
 
     #endregion
@@ -28,6 +28,11 @@ public class TutorialManager : MonoBehaviour
     private void Update()
     {
         ManagePopUps();
+        if (input.Pause == 1.0f)
+        {
+            PauseMenu();
+
+        }
     }
 
     public void ManagePopUps(){
@@ -93,6 +98,12 @@ public class TutorialManager : MonoBehaviour
     public bool CanMoveLeftRight()
     {
         return canMoveLeftRight;
+    }
+
+    private void PauseMenu()
+    {
+        
+        pauseMenu.gameObject.SetActive(true);
     }
 
     #endregion
