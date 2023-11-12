@@ -5062,6 +5062,9 @@ MonoBehaviour:
   missionManager: {fileID: 542556926}
   intermediateMissionManager: {fileID: 0}
   bgMusic: {fileID: 1293938011}
+  pauseMenu: {fileID: 0}
+  input: {fileID: 0}
+  paused: 0
 --- !u!4 &918555996
 Transform:
   m_ObjectHideFlags: 0
@@ -10324,6 +10327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293911178888734932, guid: 493dcc00f149bab4fa47198b75e5aa45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3293911178888734939, guid: 493dcc00f149bab4fa47198b75e5aa45,
         type: 3}

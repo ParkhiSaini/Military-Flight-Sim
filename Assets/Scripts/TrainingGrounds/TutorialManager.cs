@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private bool canMoveLeftRight;
     private GameManager gameManager;
     public GameObject pauseMenu;
+    private bool isPaused = false;
 
 
     #endregion
@@ -30,9 +32,10 @@ public class TutorialManager : MonoBehaviour
         ManagePopUps();
         if (input.Pause == 1.0f)
         {
-            PauseMenu();
-
+            Time.timeScale=0f;
+            pauseMenu.gameObject.SetActive(true);
         }
+       
     }
 
     public void ManagePopUps(){
@@ -100,10 +103,30 @@ public class TutorialManager : MonoBehaviour
         return canMoveLeftRight;
     }
 
-    private void PauseMenu()
+
+
+
+
+    public void RestartMission()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale=1.0f;
         
-        pauseMenu.gameObject.SetActive(true);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale=1.0f;
+        
+    }
+
+    public void ResumeMission()
+    {
+        Debug.Log("Resuming mission");
+        Time.timeScale = 1.0f;
+        pauseMenu.gameObject.SetActive(false);
+
     }
 
     #endregion

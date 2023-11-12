@@ -370,7 +370,7 @@
                 {
                     "name": "",
                     "id": "9681fd24-518d-478c-b6d5-e4f547a11388",
-                    "path": "<XInputController>/buttonSouth",
+                    "path": "<XInputController>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
