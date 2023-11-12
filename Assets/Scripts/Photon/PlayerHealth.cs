@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HealthManager : MonoBehaviour
+
+public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth =100.0f;
+    public float maxHealth = 100.0f;
     public float currentHealth;
 
     public HealthBar healthBar;
 
     private void Start()
     {
-        healthBar = this.transform.Find("HealthBar").gameObject.GetComponent<HealthBar>();
         currentHealth=maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -42,3 +42,4 @@ public class HealthManager : MonoBehaviour
         Debug.Log("Drone is destroyed");
     }
 }
+

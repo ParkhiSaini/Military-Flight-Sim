@@ -36,6 +36,9 @@ MonoBehaviour:
   RpcList:
   - ClickRpc
   - DestroyRpc
+  - FinishMission
+  - SyncMissionTime
+  - UpdateScore
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0

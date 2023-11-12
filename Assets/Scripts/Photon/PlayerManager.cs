@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.IO;
+using Photon.Realtime;
 
 public class PlayerManager : MonoBehaviour
 {
     PhotonView PV;
+    GameObject controller;
 
     void Awake(){
         PV = GetComponent<PhotonView>();
         
     }
 
-    // Update is called once per frame
     void Start(){
         if(PV.IsMine){
             CreateController();
@@ -21,6 +22,12 @@ public class PlayerManager : MonoBehaviour
     }
 
     void CreateController(){
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerDrone"), Vector3.zero, Quaternion.identity);
+        Transform spawnpoint = SpawnManager.Instance.GetSpawnpoint();
+        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerDrone"), spawnpoint.position, spawnpoint.rotation, 0, new object[] { PV.ViewID });
+    }
+
+    void Die(){
+        PhotonNetwork.Destroy(controller);
+        CreateController();
     }
 }
