@@ -46,10 +46,7 @@ public class MultiplayerDroneController : MultiRigidBodyManager
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
         cameraHandler.SetCameraTarget();
-        if(!photonView.IsMine){
-            Destroy(_rb);
-        }
-        // droneSound = gameObject.transform.Find("DroneSound").GetComponent<AudioSource>();
+        // droneSound = gameObject.transform.Find("DroneSound").GetComponent<AudioSource>();    
     }
 
     #endregion
@@ -65,7 +62,6 @@ public class MultiplayerDroneController : MultiRigidBodyManager
         } else{
             return;
         }
-        Debug.Log("Handle Physics");
         // DroneSound();
     }
 
