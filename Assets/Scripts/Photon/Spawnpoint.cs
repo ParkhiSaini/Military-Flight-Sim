@@ -10,4 +10,6 @@ public class Spawnpoint : MonoBehaviour
 	{
 		graphics.SetActive(false);
 	}
+
+	
 }
