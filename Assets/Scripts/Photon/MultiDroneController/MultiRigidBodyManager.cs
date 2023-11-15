@@ -23,7 +23,6 @@ public class MultiRigidBodyManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("Awake rigid");
         _rb = GetComponent<Rigidbody>();
         if (_rb)
         {

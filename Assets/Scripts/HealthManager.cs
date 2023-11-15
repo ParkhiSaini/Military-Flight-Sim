@@ -11,7 +11,6 @@ public class HealthManager : MonoBehaviour
 
     private void Start()
     {
-        healthBar = this.transform.Find("HealthBar").gameObject.GetComponent<HealthBar>();
         currentHealth=maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }

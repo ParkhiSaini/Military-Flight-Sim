@@ -9,7 +9,7 @@ public class B1MissionManager : MonoBehaviour
     public TextMeshProUGUI score;
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI takeoffText;
-    public TextMeshProUGUI timerText; // Added for the timer display
+    public TextMeshProUGUI timerText;
     public GameObject drone;
     public GameObject landingPad;
     public GameObject MissionCompleted;

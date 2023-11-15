@@ -60,7 +60,7 @@ public class MultiplayerDroneController : MultiRigidBodyManager
             HandleControls();
             HandleLoad();
         } else{
-            return;
+            _rb.isKinematic = true;
         }
         // DroneSound();
     }

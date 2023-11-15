@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 130564397}
   - component: {fileID: 1495251420}
   - component: {fileID: 5928248508593175146}
-  - component: {fileID: 1751229481}
+  - component: {fileID: 7263688156517889678}
   m_Layer: 0
   m_Name: PlayerDrone
   m_TagString: Player
@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoopsScore: 0
   newColor: {r: 0, g: 1, b: 0, a: 1}
---- !u!114 &1751229481
+--- !u!114 &7263688156517889678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1039,12 +1039,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2282512394024949244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a2f1cdc213f5b4e8d5e5ab6c08aeba, type: 3}
+  m_Script: {fileID: 11500000, guid: d787963bf15b9764c897d62a2b9a0d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 6231498534087092528}
+  healthBar: {fileID: 0}
 --- !u!1 &2282512394296230425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,18 +1404,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b40bfaa87994e60419692ce4b3049a44, type: 3}
---- !u!114 &6231498534087092528 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4159256398122105623, guid: b40bfaa87994e60419692ce4b3049a44,
-    type: 3}
-  m_PrefabInstance: {fileID: 8053033507141079591}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07cf499eb01cc3345bf6cf5f24862201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &6231498534087092531 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4159256398122105620, guid: b40bfaa87994e60419692ce4b3049a44,

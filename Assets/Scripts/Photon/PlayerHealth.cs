@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,18 +10,34 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
 
     public HealthBar healthBar;
-
+    PhotonView PV;
+    bool healthSet = false;
     private void Start()
     {
-        currentHealth=maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        PV = GetComponent<PhotonView>();
     }
 
-    public  void OnCollisionEnter(Collision collision)
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Terrain"))
-        {
-            Debug.Log("Collided");
+        if(healthBar == null){
+            SetHealthBar();
+        }
+    }
+
+    private void SetHealthBar(){
+        if(PV.IsMine){
+            enabled = true;
+            healthBar = transform.GetChild(3).GetComponentInChildren<HealthBar>();
+            currentHealth=maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        } else {
+            enabled = false;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Terrain")){
             float collisionImpact = collision.relativeVelocity.magnitude;
 
             float healthDepletion  = collisionImpact  *0.1f;
@@ -39,7 +56,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void DestroyDrone()
     {
-        Debug.Log("Drone is destroyed");
+        if(PV.IsMine){
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }
 

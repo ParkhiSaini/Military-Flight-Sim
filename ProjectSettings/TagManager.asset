@@ -8,6 +8,8 @@ TagManager:
   - Cube
   - Ring
   - Terrain
+  - RingP1
+  - RingP2
   layers:
   - Default
   - TransparentFX

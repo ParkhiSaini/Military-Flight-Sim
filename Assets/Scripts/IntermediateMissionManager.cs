@@ -12,29 +12,37 @@ public class IntermediateMissionManager : MonoBehaviour
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI takeoffText;
     public TextMeshProUGUI timerText;
+
+    public GameObject[] objectToBePicked;
     public GameObject drone;
     public GameObject[] landingPads;
     public GameObject selectedLandingPad;
     public GameObject MissionCompleted;
     public GameObject MissionFailed;
     public GameObject PausePanel;
+    public GameObject[] routes;
+    public GameObject selectedRoute;
     public InputManager input;
+    public GameObject[] pickupObjects;
+    public GameObject selectedPickupObject;
 
     [Header("Variables")]
     private float countdownTime = 5.0f;
     [SerializeField] public bool countdownActive = false;
     public BeginnerMission beginnerMission;
-    public GameObject[] routes;
-    public GameObject selectedRoute;
-    private Transform grandChildTransform;
+    
+    
     public bool paused =false;
     
-    public GameObject[] pickupObjects;
-    public GameObject selectedPickupObject;
     // Timer variables
     private bool missionStarted = false;
+    int routeIndex;
     private float missionStartTime;
     private float missionDuration;
+
+    [Header("Transforms")]
+    public Transform spawnpoint;
+    private Transform grandChildTransform;
 
     void Start()
     {
@@ -44,22 +52,22 @@ public class IntermediateMissionManager : MonoBehaviour
     public void InitializeReferences()
     {
         countdownActive = true;
-        // countdownAnimation = score.GetComponent<Animator>();
         Transform childTransform = drone.transform.GetChild(1);
         grandChildTransform = childTransform.GetChild(2);
-        int randomRouteIndex = Random.Range(0, routes.Length);
-        selectedRoute = routes[randomRouteIndex];
+        routeIndex = 0;
+        selectedRoute = routes[routeIndex];
         selectedRoute.SetActive(true);
-        selectedLandingPad = landingPads[randomRouteIndex];
+        selectedLandingPad = landingPads[routeIndex];
         selectedLandingPad.SetActive(true);
-        selectedPickupObject = pickupObjects[randomRouteIndex];
+        selectedPickupObject = pickupObjects[routeIndex];
         selectedPickupObject.SetActive(true);
+        objectToBePicked[routeIndex].SetActive(true);
     }
 
     private void Update()
     {
         UpdateScore();
-        UpdateTimer(); // Continuously update the timer display
+        UpdateTimer();
         if (countdownActive)
         {
             drone.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -113,28 +121,55 @@ public class IntermediateMissionManager : MonoBehaviour
         countdownActive = false;
     }
 
+    public void CompletedRoute()
+    {
+        routeIndex += 1;
+        if (routeIndex < routes.Length)
+        {
+            selectedRoute.SetActive(false);
+            selectedLandingPad.SetActive(false);
+            selectedPickupObject.SetActive(false);
+            objectToBePicked[routeIndex - 1].SetActive(false);
+            selectedRoute = routes[routeIndex];
+            selectedRoute.SetActive(true);
+            selectedLandingPad = landingPads[routeIndex];
+            selectedLandingPad.SetActive(true);
+            selectedPickupObject = pickupObjects[routeIndex];
+            selectedPickupObject.SetActive(true);
+            objectToBePicked[routeIndex].SetActive(true);
+        }
+        drone.transform.position = spawnpoint.position;
+        drone.transform.rotation = spawnpoint.rotation;
+    }
+
 
     public void MissionEnded()
     {
         if(selectedPickupObject != null && selectedLandingPad != null){
             if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 2)
             {
-                Debug.Log("Mission Completed");
-                Time.timeScale = 0;
-                MissionCompleted.SetActive(true);
-    
-                // Calculate mission duration if the mission has started.
-                if (missionStarted)
-                {
-                    missionDuration = Time.time - missionStartTime;
-                    Debug.Log("Mission Duration: " + missionDuration + " seconds");
+                if(routeIndex == routes.Length){
+                    Time.timeScale = 0;
+                    MissionCompleted.SetActive(true);
+                    Debug.Log("Mission Completed");
+                    if (missionStarted)
+                    {
+                        missionDuration = Time.time - missionStartTime;
+                        Debug.Log("Mission Duration: " + missionDuration + " seconds");
+                    }
+                } else{
+                    CompletedRoute();
                 }
             }
             else if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 2)
             {
-                MissionFailed.SetActive(true);
-                Time.timeScale = 0;
-                Debug.Log("Mission Failed");
+                if(routeIndex == routes.Length){
+                    MissionFailed.SetActive(true);
+                    Time.timeScale = 0;
+                    Debug.Log("Mission Failed");
+                } else{
+                    CompletedRoute();
+                }
             }
         }
     }

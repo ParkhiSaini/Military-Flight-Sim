@@ -8,16 +8,20 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class ScoreItem : MonoBehaviourPunCallbacks
 {
-	public TMP_Text ScoreText;
+	public TMP_Text ScoreText1;
+    public TMP_Text ScoreText2;
 
 	Player player;
 
     void Start()
     {
-        foreach (Player player in PhotonNetwork.PlayerList)
-        {
-            Initialize(player);
-        }
+        Initialize(PhotonNetwork.PlayerList[0]);
+        Initialize(PhotonNetwork.PlayerList[1]);
+    }
+
+    void FixedUpdate()
+    {
+        UpdateStats();
     }
 
 	public void Initialize(Player player)
@@ -28,16 +32,19 @@ public class ScoreItem : MonoBehaviourPunCallbacks
 
 	void UpdateStats()
 	{
-		if(player.CustomProperties.TryGetValue("Score", out object hoopsScore))
+        if(PhotonNetwork.PlayerList[0].CustomProperties.TryGetValue("Score", out object hoopsScore1))
         {
-            ScoreText.text = hoopsScore.ToString();
+            ScoreText1.text = hoopsScore1.ToString();
+        } else {
+            ScoreText1.text = "0";
+        }
+
+        if(PhotonNetwork.PlayerList[1].CustomProperties.TryGetValue("Score", out object hoopsScore2))
+        {
+            ScoreText2.text = hoopsScore2.ToString();
+        } else {
+            ScoreText2.text = "0";
         }
 	}
-
-    void Update()
-    {
-        UpdateStats();
-    }
-
 
 }

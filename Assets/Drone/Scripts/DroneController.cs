@@ -110,7 +110,7 @@ public class DroneController : RigidBodyManager
         Debug.Log("Pid Object");
         if(pickedObj.GetComponent<Rigidbody>() && pickedObj.tag == "Cube"){
             Debug.Log("Picked Object");
-            heldObjRB =  pickedObj.GetComponent<Rigidbody>();
+            heldObjRB = pickedObj.GetComponent<Rigidbody>();
             heldObjRB.drag = 10;
             heldObjRB.useGravity = false;
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;

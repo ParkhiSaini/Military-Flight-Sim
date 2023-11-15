@@ -127,6 +127,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             if (roomList[i].RemovedFromList)
                 continue;
             Instantiate(roomListItemPrefab,  roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+            Debug.Log(roomList[i].Name);
         }
     }
 
