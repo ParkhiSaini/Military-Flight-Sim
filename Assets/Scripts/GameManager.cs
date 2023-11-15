@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public InputManager input;
     public bool paused= false;
+    public AudioSource buttonClick;
 
     private void Awake()
     {
@@ -36,15 +37,19 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void Update()
+    // private void Update()
+    // {
+    //     // if (input.Pause == 1.0f)
+    //     // {
+    //     //     PauseMenu();
+
+    //     // }
+    // }
+
+    public void PlayButton()
     {
-        // if (input.Pause == 1.0f)
-        // {
-        //     PauseMenu();
-
-        // }
+        buttonClick.Play();
     }
-
 
     public void LoadLevel(int levelIndex)
     {
@@ -88,12 +93,31 @@ public class GameManager : MonoBehaviour
     //     pauseMenu.gameObject.SetActive(true);
     // }
 
+    public void RestartMission()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
+
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1.0f;
+
+    }
+
+    public void LoadNextLevel(int level)
+    {
+        SceneManager.LoadScene("BeginnerLevel");
+    }
 
 
 
 
 
-    
 
-    
+
+
+
 }

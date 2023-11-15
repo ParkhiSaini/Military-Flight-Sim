@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class B1MissionManager : MonoBehaviour
 {
     [Header("GameObjects")]
@@ -14,7 +14,7 @@ public class B1MissionManager : MonoBehaviour
     public GameObject landingPad;
     public GameObject MissionCompleted;
     public GameObject MissionFailed;
-    public GameObject PausePanel;
+    public GameObject pauseMenu;
     public InputManager input;
 
     [Header("Variables")]
@@ -59,10 +59,9 @@ public class B1MissionManager : MonoBehaviour
         }
         if (input.Pause == 1.0f)
         {
-            Pause();
 
+            pauseMenu.gameObject.SetActive(true);
         }
-
         MissionEnded();
     }
 
@@ -131,6 +130,19 @@ public class B1MissionManager : MonoBehaviour
     public void Pause()
     {
         paused = true;
-        PausePanel.gameObject.SetActive(true);
+        pauseMenu.gameObject.SetActive(true);
+    }
+    public void RestartMission()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
+
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1.0f;
+
     }
 }

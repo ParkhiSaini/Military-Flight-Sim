@@ -17,6 +17,7 @@ public class TutorialManager : MonoBehaviour
     private GameManager gameManager;
     public GameObject pauseMenu;
     private bool isPaused = false;
+    public GameObject WinningPanel;
 
 
     #endregion
@@ -32,7 +33,6 @@ public class TutorialManager : MonoBehaviour
         ManagePopUps();
         if (input.Pause == 1.0f)
         {
-            
             pauseMenu.gameObject.SetActive(true);
         }
        
@@ -79,7 +79,9 @@ public class TutorialManager : MonoBehaviour
             case 4:
                 if (popUpIndex == 4 && input.SkipTutorial == 1.0f){
                     popUpIndex++;
-                    gameManager.LoadLevel(4);
+                    WinningPanel.gameObject.SetActive(true);
+                    Time.timeScale=0f;
+                    
                 }
                 break;
         }
@@ -104,12 +106,8 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-
-
-
     public void RestartMission()
     {
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale=1.0f;
         
@@ -119,7 +117,6 @@ public class TutorialManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale=1.0f;
-        
     }
 
     public void ResumeMission()
@@ -127,7 +124,14 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("Resuming mission");
         Time.timeScale = 1.0f;
         pauseMenu.gameObject.SetActive(false);
+    }
 
+
+    public void LoadNextLevel()
+    {
+        gameManager.LoadLevel(4);
+        Time.timeScale = 1.0f;
+        WinningPanel.gameObject.SetActive(false);
     }
 
     #endregion

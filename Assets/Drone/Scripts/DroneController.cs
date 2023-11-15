@@ -26,9 +26,11 @@ public class DroneController : RigidBodyManager
     private GameObject heldObj;
     public Rigidbody heldObjRB;
     [SerializeField] private float pickupRange = 3.0f;
-    // [SerializeField] private float pickupForce = 150.0f;
-    private AudioSource droneSound;
-
+    public AudioSource droneSound;
+    // [SerializeField] private float minPitch = 1.0f;
+    // [SerializeField] private float maxPitch = 2.0f;
+    // [SerializeField] private float minVolume = 0.5f;
+    // [SerializeField] private float maxVolume = 1.0f;
 
     #endregion
 
@@ -40,7 +42,7 @@ public class DroneController : RigidBodyManager
         tutorial = FindObjectOfType<TutorialManager>();
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
-        // droneSound = gameObject.transform.Find("DroneSound").GetComponent<AudioSource>();
+        droneSound = GetComponent<AudioSource>();
     }
 
     #endregion
@@ -52,7 +54,7 @@ public class DroneController : RigidBodyManager
         HandleEngines();
         HandleControls();
         HandleLoad();
-        // DroneSound();
+        // UpdateDroneSound();
     }
 
     protected virtual void HandleControls()
@@ -64,20 +66,21 @@ public class DroneController : RigidBodyManager
         _finalPitch = Mathf.Lerp(_finalPitch, pitch, lerpSpeed * Time.deltaTime);
         _finalRoll = Mathf.Lerp(_finalRoll, roll, lerpSpeed * Time.deltaTime);
         _finalYaw = Mathf.Lerp(_finalYaw, yaw, lerpSpeed * Time.deltaTime);
-        if (SceneManager.GetActiveScene().name == "TrainingGround"){
-            if(!tutorial.CanMoveForward()){
+        if (SceneManager.GetActiveScene().name == "TrainingGround")
+        {
+            if (!tutorial.CanMoveForward())
+            {
                 _finalPitch = 0;
             }
-            if(!tutorial.CanMoveLeftRight()){
+            if (!tutorial.CanMoveLeftRight())
+            {
                 _finalRoll = 0;
             }
-            if(!tutorial.CanMoveInCyclic()){
+            if (!tutorial.CanMoveInCyclic())
+            {
                 _finalYaw = 0;
             }
         }
-        //pitch = move Forward
-        //finalRoll = move left/right
-        //yaw = rotate right/left
         Quaternion rot = Quaternion.Euler(_finalPitch, _finalYaw, _finalRoll);
         _rb.MoveRotation(rot);
     }
@@ -90,27 +93,32 @@ public class DroneController : RigidBodyManager
         }
     }
 
-    protected virtual void HandleLoad(){
-        if(input.Loaded > 0 && heldObj == null){
+    protected virtual void HandleLoad()
+    {
+        if (input.Loaded > 0 && heldObj == null)
+        {
             RaycastHit hit;
-            if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, pickupRange)){
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, pickupRange))
+            {
                 PickUpObject(hit.transform.gameObject);
             }
         }
-        else if (input.Loaded < 0 && heldObj != null){
+        else if (input.Loaded < 0 && heldObj != null)
+        {
             DropObject();
         }
 
-        if(heldObj!=null){
+        if (heldObj != null)
+        {
             MoveObject();
         }
     }
 
-    void PickUpObject(GameObject pickedObj){
-        Debug.Log("Pid Object");
-        if(pickedObj.GetComponent<Rigidbody>() && pickedObj.tag == "Cube"){
-            Debug.Log("Picked Object");
-            heldObjRB =  pickedObj.GetComponent<Rigidbody>();
+    void PickUpObject(GameObject pickedObj)
+    {
+        if (pickedObj.GetComponent<Rigidbody>() && pickedObj.tag == "Cube")
+        {
+            heldObjRB = pickedObj.GetComponent<Rigidbody>();
             heldObjRB.drag = 10;
             heldObjRB.useGravity = false;
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
@@ -119,34 +127,43 @@ public class DroneController : RigidBodyManager
         }
     }
 
-    void MoveObject(){
-        // if(Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f){
-        //     Vector3 moveDir = (holdArea.position - heldObj.transform.position);
-        //     heldObjRB.AddForce(moveDir * pickupForce);
-        // }
+    void MoveObject()
+    {
         Vector3 desiredPosition = holdArea.position;
         heldObjRB.MovePosition(desiredPosition);
     }
 
-    void DropObject(){
-        Debug.Log("Drop Object");
+    void DropObject()
+    {
         heldObjRB.drag = 1;
         heldObjRB.useGravity = true;
-        heldObjRB.constraints= RigidbodyConstraints.None;
+        heldObjRB.constraints = RigidbodyConstraints.None;
         heldObjRB.transform.parent = null;
         heldObj = null;
     }
 
-    // void DroneSound(){
-    //     droneSound.pitch = 1 + (_rb.velocity.magnitude/100);
-    //     if(_finalPitch != 0 || _finalRoll != 0){
-    //         droneSound.volume = 0.5f;
+    // private void UpdateDroneSound()
+    // {
+    //     float speed = _rb.velocity.magnitude;
+
+    //     float pitch = Mathf.Lerp(minPitch, maxPitch, speed / 10f); // You can adjust the divisor for the desired sensitivity
+    //     float volume = Mathf.Lerp(minVolume, maxVolume, speed / 10f);
+
+    //     droneSound.pitch = pitch;
+        
+    //     droneSound.volume = volume;
+    //     Debug.Log(pitch);
+    //     Debug.Log(volume);
+
+    //     if (speed > 0.1f && !droneSound.isPlaying)
+    //     {
+    //         droneSound.Play();
     //     }
-    //     else{
-    //         droneSound.volume = 0.1f;
+    //     else if (speed <= 0.1f && droneSound.isPlaying)
+    //     {
+    //         droneSound.Stop();
     //     }
     // }
 
     #endregion
-
 }
