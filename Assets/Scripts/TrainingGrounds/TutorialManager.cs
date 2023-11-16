@@ -33,6 +33,7 @@ public class TutorialManager : MonoBehaviour
         ManagePopUps();
         if (input.Pause == 1.0f)
         {
+            Time.timeScale = 0f;
             pauseMenu.gameObject.SetActive(true);
         }
    
@@ -127,6 +128,7 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("Resuming mission");
         Time.timeScale = 1.0f;
         pauseMenu.gameObject.SetActive(false);
+        Debug.Log("Resumed mission");
     }
 
 

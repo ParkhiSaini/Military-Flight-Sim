@@ -26,12 +26,8 @@ public class DroneController : RigidBodyManager
     private GameObject heldObj;
     public Rigidbody heldObjRB;
     [SerializeField] private float pickupRange = 3.0f;
-    public AudioSource droneSound;
-    // [SerializeField] private float minPitch = 1.0f;
-    // [SerializeField] private float maxPitch = 2.0f;
-    // [SerializeField] private float minVolume = 0.5f;
-    // [SerializeField] private float maxVolume = 1.0f;
 
+    public AudioSource droneSound;
     #endregion
 
     #region Main Methods
@@ -42,7 +38,6 @@ public class DroneController : RigidBodyManager
         tutorial = FindObjectOfType<TutorialManager>();
         input = GetComponent<InputManager>();
         _engines = GetComponentsInChildren<IEngine>().ToList();
-        droneSound = GetComponent<AudioSource>();
     }
 
     #endregion
@@ -54,7 +49,7 @@ public class DroneController : RigidBodyManager
         HandleEngines();
         HandleControls();
         HandleLoad();
-        // UpdateDroneSound();
+        UpdateDroneSound();
     }
 
     protected virtual void HandleControls()
@@ -142,28 +137,10 @@ public class DroneController : RigidBodyManager
         heldObj = null;
     }
 
-    // private void UpdateDroneSound()
-    // {
-    //     float speed = _rb.velocity.magnitude;
-
-    //     float pitch = Mathf.Lerp(minPitch, maxPitch, speed / 10f); // You can adjust the divisor for the desired sensitivity
-    //     float volume = Mathf.Lerp(minVolume, maxVolume, speed / 10f);
-
-    //     droneSound.pitch = pitch;
-        
-    //     droneSound.volume = volume;
-    //     Debug.Log(pitch);
-    //     Debug.Log(volume);
-
-    //     if (speed > 0.1f && !droneSound.isPlaying)
-    //     {
-    //         droneSound.Play();
-    //     }
-    //     else if (speed <= 0.1f && droneSound.isPlaying)
-    //     {
-    //         droneSound.Stop();
-    //     }
-    // }
+    private void UpdateDroneSound()
+    {
+        droneSound.pitch = 1 + (_rb.velocity.magnitude / 100f);
+    }
 
     #endregion
 }
