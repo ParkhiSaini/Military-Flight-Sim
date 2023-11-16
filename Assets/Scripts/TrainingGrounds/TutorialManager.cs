@@ -16,8 +16,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private bool canMoveLeftRight;
     private GameManager gameManager;
     public GameObject pauseMenu;
-    private bool isPaused = false;
     public GameObject WinningPanel;
+ 
 
 
     #endregion
@@ -35,6 +35,7 @@ public class TutorialManager : MonoBehaviour
         {
             pauseMenu.gameObject.SetActive(true);
         }
+   
        
     }
 
@@ -51,6 +52,8 @@ public class TutorialManager : MonoBehaviour
                 {
                     popUpIndex++;
                     canMoveForward = true;
+                    
+
                 }
                 break;
 
