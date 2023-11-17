@@ -8,6 +8,8 @@ public class HealthManager : MonoBehaviour
     public float currentHealth;
 
     public HealthBar healthBar;
+    public B1MissionManager missionManager;
+    
 
     private void Start()
     {
@@ -21,13 +23,10 @@ public class HealthManager : MonoBehaviour
         {
             Debug.Log("Collided");
             float collisionImpact = collision.relativeVelocity.magnitude;
-
-            float healthDepletion  = collisionImpact  *0.1f;
-
+            float healthDepletion  = collisionImpact  *1.5f;
             currentHealth -= healthDepletion;
             currentHealth = Mathf.Max(currentHealth, 0 );
             healthBar.SetHealth(currentHealth);
-
 
             if (currentHealth<=0)
             {
@@ -38,6 +37,8 @@ public class HealthManager : MonoBehaviour
 
     private void DestroyDrone()
     {
+        Destroy(gameObject);
+        missionManager.MissionFailed.SetActive(true);
         Debug.Log("Drone is destroyed");
     }
 }

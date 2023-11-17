@@ -28,7 +28,7 @@ public class TutorialManager : MonoBehaviour
         gameManager = GameManager.instance;
         input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
     }
-    
+
     private void Update()
     {
         ManagePopUps();
@@ -126,10 +126,10 @@ public class TutorialManager : MonoBehaviour
 
     public void ResumeMission()
     {
-        Debug.Log("Resuming mission");
+        
         Time.timeScale = 1.0f;
         pauseMenu.gameObject.SetActive(false);
-        Debug.Log("Resumed mission");
+    
     }
 
 

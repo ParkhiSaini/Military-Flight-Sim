@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Photon/RoomMenu.unity
     guid: b30bd5a42ececb4438f21d26e758f5a6
   - enabled: 1
-    path: Assets/Scenes/BeginnerLevels/TrainingGround.unity
+    path: Assets/Scenes/TrainingGround/TrainingGround.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/BeginnerLevels/BeginnerLevel.unity

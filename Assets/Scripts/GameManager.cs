@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenu;
     public InputManager input;
-    public bool paused= false;
     public AudioSource buttonClick;
+    public GameObject FPSCam;
 
     private void Awake()
     {
@@ -29,22 +29,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Update()
     {
+        if (input.CamSwitch== 1.0f)
+        {
+            FPSCam.gameObject.SetActive(true);
         
-        LoadLevel(currentLevel);
-      
-
+        }
     }
 
-    // private void Update()
-    // {
-    //     // if (input.Pause == 1.0f)
-    //     // {
-    //     //     PauseMenu();
-
-    //     // }
-    // }
+    private void Start()
+    {
+        LoadLevel(currentLevel);
+    }
 
     public void PlayButton()
     {
@@ -87,30 +84,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // private void PauseMenu()
-    // {
-    //     paused=true;
-    //     pauseMenu.gameObject.SetActive(true);
-    // }
-
-    public void RestartMission()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1.0f;
-
-    }
-
-    public void BackToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1.0f;
-
-    }
-
-    public void LoadNextLevel(int level)
-    {
-        SceneManager.LoadScene("BeginnerLevel");
-    }
+   
 
 
 
