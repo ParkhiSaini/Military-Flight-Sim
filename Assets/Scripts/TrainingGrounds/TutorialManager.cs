@@ -33,8 +33,9 @@ public class TutorialManager : MonoBehaviour
         ManagePopUps();
         if (input.Pause == 1.0f)
         {
-            Time.timeScale = 0f;
+            
             pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0f;
         }
    
        
