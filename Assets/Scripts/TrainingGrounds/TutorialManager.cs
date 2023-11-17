@@ -28,12 +28,12 @@ public class TutorialManager : MonoBehaviour
         gameManager = GameManager.instance;
         input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
     }
+    
     private void Update()
     {
         ManagePopUps();
         if (input.Pause == 1.0f)
         {
-            
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0f;
         }
@@ -113,9 +113,9 @@ public class TutorialManager : MonoBehaviour
 
     public void RestartMission()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale=1.0f;
-        
+        ResumeMission();
+        SceneManager.LoadScene("TrainingGround");
+
     }
 
     public void BackToMainMenu()
