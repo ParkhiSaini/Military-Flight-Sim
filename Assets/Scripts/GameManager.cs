@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public AudioSource buttonClick;
     public GameObject FPSCam;
 
+
     private void Awake()
     {
         if (instance == null)
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
     public void Update()
     {
