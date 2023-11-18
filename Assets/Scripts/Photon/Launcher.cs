@@ -98,6 +98,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(8);
     }
 
+    public void StartGameIcy()
+    {
+        PhotonNetwork.LoadLevel(9);
+    }
+
+
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();

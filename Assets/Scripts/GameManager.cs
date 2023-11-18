@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public AudioSource bgMusic;
 
     public GameObject pauseMenu;
-    public InputManager input;
     public AudioSource buttonClick;
     public GameObject FPSCam;
 
@@ -26,15 +25,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-    }
-
-    public void Update()
-    {
-        if (input.CamSwitch== 1.0f)
-        {
-            FPSCam.gameObject.SetActive(true);
-        
         }
     }
 

@@ -61,12 +61,12 @@
                 },
                 {
                     "name": "CamSwitch",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "71410da7-32f1-4299-b286-b9da6c013643",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

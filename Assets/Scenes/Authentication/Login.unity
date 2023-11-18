@@ -2455,9 +2455,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74341ded8c073a045b4e7bce024f5fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CreateAccountDisplay: {fileID: 0}
+  reg_usernameInputField: {fileID: 0}
+  reg_emailInputField: {fileID: 0}
+  reg_passwordInputField: {fileID: 0}
+  errorMessage: {fileID: 173409368}
   log_usernameInputField: {fileID: 1120193881}
   log_passwordInputField: {fileID: 747265518}
-  errorMessage: {fileID: 173409368}
   signinDisplay: {fileID: 1655403663}
 --- !u!4 &913641224
 Transform:

@@ -125,6 +125,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &4454863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2410868986548765898, guid: b9a14e857483af54192899676d7b5b93,
+    type: 3}
+  m_PrefabInstance: {fileID: 181176796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &13921129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1103,7 +1115,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165776446}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &165776450
 Camera:
   m_ObjectHideFlags: 0
@@ -3196,6 +3208,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6110910109653125555, guid: c0e8657a4a430534f8e3ffff22490a02,
+        type: 3}
+      propertyPath: droneSound
+      value: 
+      objectReference: {fileID: 2061470410}
+    - target: {fileID: 6110910109653125555, guid: c0e8657a4a430534f8e3ffff22490a02,
+        type: 3}
+      propertyPath: landingSound
+      value: 
+      objectReference: {fileID: 2081756920}
     - target: {fileID: 7037089450545141648, guid: c0e8657a4a430534f8e3ffff22490a02,
         type: 3}
       propertyPath: m_Name
@@ -3258,6 +3280,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7037089450545141660, guid: c0e8657a4a430534f8e3ffff22490a02,
         type: 3}
+      propertyPath: FPSCam
+      value: 
+      objectReference: {fileID: 1140788079}
+    - target: {fileID: 7037089450545141660, guid: c0e8657a4a430534f8e3ffff22490a02,
+        type: 3}
+      propertyPath: MainCam
+      value: 
+      objectReference: {fileID: 4454863}
+    - target: {fileID: 7037089450545141660, guid: c0e8657a4a430534f8e3ffff22490a02,
+        type: 3}
       propertyPath: maxPitch
       value: 10
       objectReference: {fileID: 0}
@@ -3271,6 +3303,11 @@ PrefabInstance:
       propertyPath: maxVolume
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7037089450545141660, guid: c0e8657a4a430534f8e3ffff22490a02,
+        type: 3}
+      propertyPath: droneSound
+      value: 
+      objectReference: {fileID: 2061470410}
     - target: {fileID: 7037089451666970968, guid: c0e8657a4a430534f8e3ffff22490a02,
         type: 3}
       propertyPath: hoopsScore
@@ -3460,7 +3497,6 @@ MonoBehaviour:
   intermediateMissionManager: {fileID: 0}
   bgMusic: {fileID: 1293938011}
   pauseMenu: {fileID: 0}
-  input: {fileID: 0}
   buttonClick: {fileID: 0}
   FPSCam: {fileID: 1140788078}
 --- !u!4 &918555996
@@ -4288,6 +4324,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7511256351892469937}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1140788079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5280601725905252005, guid: 1820b51263780854397beb40b360e5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7511256351892469937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140788078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1142378951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6624,7 +6672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 66.1001, y: 13.80014}
+  m_AnchoredPosition: {x: 66.1001, y: 13.80011}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1972613992
@@ -6947,6 +6995,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a221163dbec9594194ddda87f3476e6, type: 3}
+--- !u!82 &2061470410 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6110910110970296963, guid: c0e8657a4a430534f8e3ffff22490a02,
+    type: 3}
+  m_PrefabInstance: {fileID: 811114249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064923044 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1844236073924174, guid: 1a221163dbec9594194ddda87f3476e6,
@@ -6985,6 +7039,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2081756920 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6110910109914539824, guid: c0e8657a4a430534f8e3ffff22490a02,
+    type: 3}
+  m_PrefabInstance: {fileID: 811114249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2095636745
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 [RequireComponent(typeof(InputManager))]
 public class DroneController : RigidBodyManager
@@ -26,6 +27,8 @@ public class DroneController : RigidBodyManager
     private GameObject heldObj;
     public Rigidbody heldObjRB;
     [SerializeField] private float pickupRange = 3.0f;
+    // public CinemachineVirtualCamera FPSCam;
+    // public CinemachineVirtualCamera MainCam;
 
     public AudioSource droneSound;
     #endregion
@@ -50,6 +53,7 @@ public class DroneController : RigidBodyManager
         HandleControls();
         HandleLoad();
         UpdateDroneSound();
+        // switchCamera();
     }
 
     protected virtual void HandleControls()
@@ -108,6 +112,14 @@ public class DroneController : RigidBodyManager
             MoveObject();
         }
     }
+
+    // void switchCamera(){
+    //     if (input.CamSwitch > 0){
+    //         if (FPSCam != null){
+    //             FPSCam.gameObject.SetActive(!FPSCam.gameObject.activeSelf);
+    //         }   
+    //     }
+    // }
 
     void PickUpObject(GameObject pickedObj)
     {
