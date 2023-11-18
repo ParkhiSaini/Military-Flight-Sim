@@ -137,8 +137,7 @@ public class B1MissionManager : MonoBehaviour
            
             if (missionStarted)
             {
-                missionDuration = Time.time - missionStartTime;
-                
+                missionDuration = Time.time - missionStartTime;   
             }
 
             if(beginnerMission.hoopsScore >= 14 && beginnerMission.hoopsScore <=17 && missionDuration <= 60)

@@ -466,9 +466,8 @@ MonoBehaviour:
   bgMusic: {fileID: 0}
   pauseMenu: {fileID: 3293911178888734932, guid: 493dcc00f149bab4fa47198b75e5aa45,
     type: 3}
-  input: {fileID: 0}
-  paused: 0
   buttonClick: {fileID: 270474715}
+  FPSCam: {fileID: 0}
 --- !u!1001 &290235832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,6 +952,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5280601725905252005, guid: 1820b51263780854397beb40b360e5fc,
+        type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1148640652}
     - target: {fileID: 5280601725905252006, guid: 1820b51263780854397beb40b360e5fc,
         type: 3}
       propertyPath: m_Name
@@ -965,6 +969,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1820b51263780854397beb40b360e5fc, type: 3}
+--- !u!114 &483491158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5280601725905252005, guid: 1820b51263780854397beb40b360e5fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 483491157}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &513049990
 GameObject:
   m_ObjectHideFlags: 0
@@ -8412,6 +8428,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2021690283, guid: c0e8657a4a430534f8e3ffff22490a02, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7037089450545141648, guid: c0e8657a4a430534f8e3ffff22490a02,
         type: 3}
       propertyPath: m_Name
@@ -8474,11 +8494,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7037089450545141660, guid: c0e8657a4a430534f8e3ffff22490a02,
         type: 3}
+      propertyPath: FPSCam
+      value: 
+      objectReference: {fileID: 483491158}
+    - target: {fileID: 7037089450545141660, guid: c0e8657a4a430534f8e3ffff22490a02,
+        type: 3}
       propertyPath: droneSound
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7037089451666970966}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0e8657a4a430534f8e3ffff22490a02, type: 3}
+--- !u!82 &7037089451666970966 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6110910110970296963, guid: c0e8657a4a430534f8e3ffff22490a02,
+    type: 3}
+  m_PrefabInstance: {fileID: 7037089451666970965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9090438421673320801
 PrefabInstance:
   m_ObjectHideFlags: 0
