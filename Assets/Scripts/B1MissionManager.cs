@@ -19,7 +19,6 @@ public class B1MissionManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject instructions;
     public GameObject HealthBar;
-    public GameObject FPSCam;
 
     public TMP_Text hoopScore;
 
@@ -28,6 +27,7 @@ public class B1MissionManager : MonoBehaviour
 
     [Header("Winning Screen UI")]
     public TMP_Text winhoopScore;
+    public TMP_Text titleEarnedWin;
 
     [Header("Failed Screen UI")]
     public TMP_Text losehoopScore;
@@ -40,7 +40,6 @@ public class B1MissionManager : MonoBehaviour
     public GameObject[] rings;
     private Transform grandChildTransform;
     public bool paused =false;
-    public bool fps=false;
 
     // Timer variables
     private bool missionStarted = false;
@@ -79,12 +78,6 @@ public class B1MissionManager : MonoBehaviour
         {
 
             pauseMenu.gameObject.SetActive(true);
-        }
-        if (input.CamSwitch == 1.0f)
-        {
-            fps=true;
-            FPSCam.gameObject.SetActive(true);
-
         }
         
         MissionEnded();
@@ -134,7 +127,7 @@ public class B1MissionManager : MonoBehaviour
 
     public void MissionEnded()
     {
-        if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 2)
+        if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 15)
         {
             
             Time.timeScale = 0;
@@ -147,14 +140,25 @@ public class B1MissionManager : MonoBehaviour
                 missionDuration = Time.time - missionStartTime;
                 
             }
+
+            if(beginnerMission.hoopsScore >= 14 && beginnerMission.hoopsScore <=17 && missionDuration <= 60)
+            {
+                titleEarnedWin.text = "Novice";
+            }
+            else if (beginnerMission.hoopsScore >= 17 && beginnerMission.hoopsScore <= 21 && missionDuration <= 60)
+            {
+                titleEarnedWin.text = "Amateur";
+            }else if (beginnerMission.hoopsScore >= 21 && beginnerMission.hoopsScore <= 25 && missionDuration <= 60)
+            {
+                titleEarnedWin.text = "Veteran";
+            }
         }
-        else if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 2)
+        else if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 15)
         {
             MissionFailed.SetActive(true);
             losehoopScore.text = beginnerMission.hoopsScore.ToString();
             Debug.Log("losehoopScore: " + beginnerMission.hoopsScore.ToString());
             Time.timeScale = 0;
-        
         }
     }
 
