@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public AudioSource buttonClick;
     public GameObject FPSCam;
 
+
     private void Awake()
     {
         if (instance == null)
