@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class HealthManager : MonoBehaviour
 {
     public float maxHealth =100.0f;
@@ -9,7 +10,6 @@ public class HealthManager : MonoBehaviour
 
     public HealthBar healthBar;
     public B1MissionManager missionManager;
-    
 
     private void Start()
     {

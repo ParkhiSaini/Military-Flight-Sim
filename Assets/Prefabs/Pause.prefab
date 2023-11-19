@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
-    m_PressedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
-    m_SelectedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.59607846, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -224,10 +224,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ABORT AND RETURN TO THE HANGAR
+  m_text: RETURN TO THE MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eee454155161eff4ba4c1c859c20a756, type: 2}
-  m_sharedMaterial: {fileID: -6977253027483018759, guid: eee454155161eff4ba4c1c859c20a756,
+  m_fontAsset: {fileID: 11400000, guid: a54d3bc87f3c78f41a19df7c7028f90f, type: 2}
+  m_sharedMaterial: {fileID: 2748157559956171287, guid: a54d3bc87f3c78f41a19df7c7028f90f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -252,13 +252,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 33
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -362,8 +362,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESTART MISSION
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eee454155161eff4ba4c1c859c20a756, type: 2}
-  m_sharedMaterial: {fileID: -6977253027483018759, guid: eee454155161eff4ba4c1c859c20a756,
+  m_fontAsset: {fileID: 11400000, guid: a54d3bc87f3c78f41a19df7c7028f90f, type: 2}
+  m_sharedMaterial: {fileID: 2748157559956171287, guid: a54d3bc87f3c78f41a19df7c7028f90f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -388,13 +388,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 33
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -492,14 +492,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6431373}
+  m_Color: {r: 1, g: 0.6269884, b: 0.27044016, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b0111ae00dade054383d763b806e7625, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f34330f7da8823b4382f466f0b451f8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -706,9 +706,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
-    m_PressedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
-    m_SelectedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.59607846, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -729,20 +729,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: B1MissionManager, Assembly-CSharp
         m_MethodName: RestartMission
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1007,9 +995,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
-    m_PressedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
-    m_SelectedColor: {r: 0.64705884, g: 0.23529412, b: 0.12156863, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.59607846, b: 0, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1121,8 +1109,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESUME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eee454155161eff4ba4c1c859c20a756, type: 2}
-  m_sharedMaterial: {fileID: -6977253027483018759, guid: eee454155161eff4ba4c1c859c20a756,
+  m_fontAsset: {fileID: 11400000, guid: a54d3bc87f3c78f41a19df7c7028f90f, type: 2}
+  m_sharedMaterial: {fileID: 2748157559956171287, guid: a54d3bc87f3c78f41a19df7c7028f90f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1147,13 +1135,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 33
+  m_fontStyle: 32
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

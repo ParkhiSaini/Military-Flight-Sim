@@ -25,6 +25,8 @@ public class IntermediateMissionManager : MonoBehaviour
     public InputManager input;
     public GameObject[] pickupObjects;
     public GameObject selectedPickupObject;
+    public GameObject instructions;
+    public GameObject HealthBar;
 
     [Header("Variables")]
     private float countdownTime = 5.0f;
@@ -108,12 +110,13 @@ public class IntermediateMissionManager : MonoBehaviour
             currentTime -= 1.0f;
             if (currentTime == 0)
             {
+                instructions.gameObject.SetActive(false);
                 takeoffText.gameObject.SetActive(true);
                 countdownText.gameObject.SetActive(false);
                 yield return new WaitForSeconds(1.0f);
                 takeoffText.gameObject.SetActive(false);
 
-                // Start recording the mission time when the countdown is over.
+                HealthBar.gameObject.SetActive(true);
                 missionStarted = true;
                 missionStartTime = Time.time;
             }
@@ -152,6 +155,7 @@ public class IntermediateMissionManager : MonoBehaviour
                     Time.timeScale = 0;
                     MissionCompleted.SetActive(true);
                     Debug.Log("Mission Completed");
+                    MissionCompleted.SetActive(true);
                     if (missionStarted)
                     {
                         missionDuration = Time.time - missionStartTime;
@@ -163,9 +167,11 @@ public class IntermediateMissionManager : MonoBehaviour
             }
             else if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 2)
             {
+                
                 if(routeIndex == routes.Length){
                     MissionFailed.SetActive(true);
                     Time.timeScale = 0;
+                    MissionFailed.SetActive(true);
                     Debug.Log("Mission Failed");
                 } else{
                     CompletedRoute();
