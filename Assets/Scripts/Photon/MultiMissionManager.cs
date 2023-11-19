@@ -124,7 +124,6 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
                 missionDuration = (float)System.Math.Round(missionDuration,2);
                 hoops.text =drone.GetComponent<ScoreSetter>().hoopsScore.ToString();
                 timeTaken.text = missionDuration.ToString() + "seconds";
-
             } 
         } else{
             if (Vector3.Distance(drone.transform.position, landingPad2.transform.position) < 1.0f)
@@ -139,6 +138,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
                 missionDuration = (float)System.Math.Round(missionDuration,2);
                 hoops.text =drone.GetComponent<ScoreSetter>().hoopsScore.ToString();
                 timeTaken.text = missionDuration.ToString() + "seconds";
+                
             }
         }
     }
