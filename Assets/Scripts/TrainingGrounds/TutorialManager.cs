@@ -82,11 +82,17 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
             case 4:
-                if (popUpIndex == 4 && input.SkipTutorial == 1.0f){
+                if (popUpIndex == 4 && input.CamSwitch == 1.0f){
+                    popUpIndex++;
+                }
+                break;
+            case 5:
+                if (popUpIndex == 5 && input.SkipTutorial == 1.0f)
+                {
                     popUpIndex++;
                     WinningPanel.gameObject.SetActive(true);
-                    Time.timeScale=0f;
-                    
+                    Time.timeScale = 0f;
+
                 }
                 break;
         }
