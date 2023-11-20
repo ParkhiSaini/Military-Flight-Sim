@@ -10,6 +10,7 @@ public class HealthManager : MonoBehaviour
 
     public HealthBar healthBar;
     public B1MissionManager missionManager;
+    public IntermediateMissionManager intermediateMissionManager;
 
     private void Start()
     {
@@ -38,7 +39,11 @@ public class HealthManager : MonoBehaviour
     private void DestroyDrone()
     {
         Destroy(gameObject);
-        missionManager.MissionFailed.SetActive(true);
+        if(missionManager!=null){
+            missionManager.OnHealthEnded();
+        } else{
+            intermediateMissionManager.OnHealthEnded();
+        }
         Debug.Log("Drone is destroyed");
     }
 }

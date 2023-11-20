@@ -129,48 +129,59 @@ public class B1MissionManager : MonoBehaviour
 
     public void MissionEnded()
     {
-        if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 15)
-        {
+        if(drone != null){
+            if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 15)
+            {
+                
+                Time.timeScale = 0;
+                MissionCompleted.SetActive(true);
+                hoopScore.text = beginnerMission.hoopsScore.ToString();
+
             
-            Time.timeScale = 0;
-            MissionCompleted.SetActive(true);
-            hoopScore.text = beginnerMission.hoopsScore.ToString();
+                if (missionStarted)
+                {
+                    missionDuration = Time.time - missionStartTime;   
+                }
 
-           
-            if (missionStarted)
-            {
-                missionDuration = Time.time - missionStartTime;   
-            }
+                winTime.text = missionDuration.ToString("F2") + "s";
 
-            winTime.text = missionDuration.ToString("F2") + "s";
-
-            if(beginnerMission.hoopsScore >= 14 && beginnerMission.hoopsScore <=17 && missionDuration <= 60)
-            {
-                titleEarnedWin.text = "Novice";
+                if(beginnerMission.hoopsScore >= 14 && beginnerMission.hoopsScore <=17 && missionDuration <= 60)
+                {
+                    titleEarnedWin.text = "Novice";
+                }
+                else if (beginnerMission.hoopsScore >= 17 && beginnerMission.hoopsScore <= 21 && missionDuration <= 60)
+                {
+                    titleEarnedWin.text = "Amateur";
+                }else if (beginnerMission.hoopsScore >= 21 && beginnerMission.hoopsScore <= 25 && missionDuration <= 60)
+                {
+                    titleEarnedWin.text = "Veteran";
+                }
             }
-            else if (beginnerMission.hoopsScore >= 17 && beginnerMission.hoopsScore <= 21 && missionDuration <= 60)
+            else if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 15)
             {
-                titleEarnedWin.text = "Amateur";
-            }else if (beginnerMission.hoopsScore >= 21 && beginnerMission.hoopsScore <= 25 && missionDuration <= 60)
-            {
-                titleEarnedWin.text = "Veteran";
+                MissionFailed.SetActive(true);
+                losehoopScore.text = beginnerMission.hoopsScore.ToString();
+                if (missionStarted)
+                {
+                    missionDuration = Time.time - missionStartTime;   
+                }
+                loseTime.text = missionDuration.ToString("F2") + "s";
+                
+                Debug.Log("losehoopScore: " + beginnerMission.hoopsScore.ToString());
+                Time.timeScale = 0;
             }
-        }
-        else if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 15)
-        {
-            MissionFailed.SetActive(true);
-            losehoopScore.text = beginnerMission.hoopsScore.ToString();
-            if (missionStarted)
-            {
-                missionDuration = Time.time - missionStartTime;   
-            }
-            loseTime.text = missionDuration.ToString("F2") + "s";
-            
-            Debug.Log("losehoopScore: " + beginnerMission.hoopsScore.ToString());
-            Time.timeScale = 0;
         }
     }
 
+    public void OnHealthEnded(){
+        MissionFailed.SetActive(true);
+        losehoopScore.text = beginnerMission.hoopsScore.ToString();
+        if (missionStarted)
+        {
+            missionDuration = Time.time - missionStartTime;   
+        }
+        loseTime.text = missionDuration.ToString("F2") + "s";
+    }
     public void Pause()
     {
         paused = true;
@@ -188,6 +199,16 @@ public class B1MissionManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1.0f;
+    }
+
+    public void NextLevel(){
+        SceneManager.LoadScene("Intermediate");
+        // Time.timeScale = 1.0f;
+    }
+
+    public void PrevLevel(){
+        SceneManager.LoadScene("TrainingGround");
+        // Time.timeScale = 1.0f;
     }
 
 }

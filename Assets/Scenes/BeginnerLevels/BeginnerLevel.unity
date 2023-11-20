@@ -2287,8 +2287,10 @@ MonoBehaviour:
   hoopScore: {fileID: 631943047}
   input: {fileID: 2021690279}
   winhoopScore: {fileID: 631943047}
+  winTime: {fileID: 678691760}
   titleEarnedWin: {fileID: 560045335136884757}
   losehoopScore: {fileID: 2073789823}
+  loseTime: {fileID: 1790712013}
   countdownActive: 0
   beginnerMission: {fileID: 2021690276}
   rings:
@@ -2752,6 +2754,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674747320}
   m_CullTransparentMesh: 1
+--- !u!114 &678691760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 638788423941349967, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+    type: 3}
+  m_PrefabInstance: {fileID: 560045335136884756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &680023626 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1844236073924174, guid: 1a221163dbec9594194ddda87f3476e6,
@@ -6091,6 +6105,18 @@ CapsuleCollider:
   m_Height: 0.07
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1790712013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6958783049714666452, guid: e3d6bc8c6de32eb459935b7350f503db,
+    type: 3}
+  m_PrefabInstance: {fileID: 573475345009057719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1817527825
 GameObject:
   m_ObjectHideFlags: 0
@@ -6974,6 +7000,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 245163053}
     m_Modifications:
+    - target: {fileID: 560045334236963162, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 542556926}
+    - target: {fileID: 560045334236963162, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 560045334236963162, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: B1MissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 560045335179793609, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 542556926}
+    - target: {fileID: 560045335179793609, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartMission
+      objectReference: {fileID: 0}
+    - target: {fileID: 560045335179793609, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: B1MissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 560045335372434022, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_text
+      value: REStART
+      objectReference: {fileID: 0}
     - target: {fileID: 1280979583134332976, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7084,6 +7145,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winning Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 1280979583134332977, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280979583332930752, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 542556926}
+    - target: {fileID: 1280979583332930752, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280979583332930752, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: B1MissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76a320636e8c2b445b3e2c9c0b8b10de, type: 3}
 --- !u!114 &560045335136884757 stripped
@@ -7105,10 +7186,65 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 245163053}
     m_Modifications:
+    - target: {fileID: 8037325255730684925, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_text
+      value: REStART
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325255730684925, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256490679634, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 542556926}
+    - target: {fileID: 8037325256490679634, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartMission
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256490679634, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: B1MissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256629176513, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 542556926}
+    - target: {fileID: 8037325256629176513, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256629176513, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: B1MissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888292826459, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 542556925}
+    - target: {fileID: 8757542888292826459, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8757542889297842602, guid: e3d6bc8c6de32eb459935b7350f503db,
         type: 3}
       propertyPath: m_Name
       value: Failed Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542889297842602, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8757542889297842603, guid: e3d6bc8c6de32eb459935b7350f503db,
         type: 3}

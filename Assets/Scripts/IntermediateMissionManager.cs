@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class IntermediateMissionManager : MonoBehaviour
 {
@@ -189,8 +190,6 @@ public class IntermediateMissionManager : MonoBehaviour
                 if(routeIndex == routes.Length){
                     MissionFailed.SetActive(true);
                     Time.timeScale = 0;
-                    MissionFailed.SetActive(true);
-                    Debug.Log("Mission Failed");
                     losehoopScore.text = beginnerMission.hoopsScore.ToString();
                     if (missionStarted)
                     {
@@ -210,5 +209,32 @@ public class IntermediateMissionManager : MonoBehaviour
         PausePanel.gameObject.SetActive(true);
     }
 
+    public void OnHealthEnded(){
+        MissionFailed.SetActive(true);
+        losehoopScore.text = beginnerMission.hoopsScore.ToString();
+        if (missionStarted)
+        {
+            missionDuration = Time.time - missionStartTime;   
+        }
+        loseTime.text = missionDuration.ToString("F2") + "s";
+    }
+
+    public void RestartMission()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1.0f;
+
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1.0f;
+    }
+
+    public void PrevLevel(){
+        SceneManager.LoadScene("TrainingGround");
+        // Time.timeScale = 1.0f;
+    }
 
 }

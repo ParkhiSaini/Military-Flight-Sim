@@ -96,7 +96,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel(8);
+        PhotonNetwork.LoadLevel(7);
     }
 
     public void StartGameIcy()
