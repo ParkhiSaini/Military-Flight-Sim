@@ -24,7 +24,6 @@ public class BeginnerMission : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ring") && !scoredRings.Contains(other.gameObject))
         {
-            Debug.Log("Passed");
             hoopsScore += 1;
             other.gameObject.GetComponent<Renderer>().material.color = newColor;
 

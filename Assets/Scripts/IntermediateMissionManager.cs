@@ -7,12 +7,19 @@ using TMPro;
 public class IntermediateMissionManager : MonoBehaviour
 {
     
- [Header("GameObjects")]
+    [Header("UI")]
     public TextMeshProUGUI score;
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI takeoffText;
     public TextMeshProUGUI timerText;
+    public TMP_Text winhoopScore;
+    public TMP_Text winTime;
+    public TMP_Text titleEarnedWin;
+    public TMP_Text losehoopScore;
+    public TMP_Text loseTime;
 
+
+    [Header("GameObjects")]
     public GameObject[] objectToBePicked;
     public GameObject drone;
     public GameObject[] landingPads;
@@ -80,7 +87,6 @@ public class IntermediateMissionManager : MonoBehaviour
             Pause();
 
         }
-
         MissionEnded();
     }
 
@@ -149,18 +155,30 @@ public class IntermediateMissionManager : MonoBehaviour
     public void MissionEnded()
     {
         if(selectedPickupObject != null && selectedLandingPad != null){
-            if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 2)
+            if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 30)
             {
-                if(routeIndex == routes.Length){
+                if(routeIndex == routes.Length - 1){
                     Time.timeScale = 0;
-                    MissionCompleted.SetActive(true);
-                    Debug.Log("Mission Completed");
                     MissionCompleted.SetActive(true);
                     if (missionStarted)
                     {
                         missionDuration = Time.time - missionStartTime;
-                        Debug.Log("Mission Duration: " + missionDuration + " seconds");
                     }
+                    winhoopScore.text = beginnerMission.hoopsScore.ToString();
+                    winTime.text = missionDuration.ToString("F2");
+                    if (beginnerMission.hoopsScore >= 30 && beginnerMission.hoopsScore <= 38 && missionDuration <= 180 && missionDuration > 150)
+                    {
+                        titleEarnedWin.text = "Novice";
+                    }
+                    else if (beginnerMission.hoopsScore >= 30 && beginnerMission.hoopsScore <= 60 && missionDuration <= 150 && missionDuration > 135)
+                    {
+                        titleEarnedWin.text = "Amateur";
+                    }
+                    else if (beginnerMission.hoopsScore >= 38 && missionDuration <= 135)
+                    {
+                        titleEarnedWin.text = "Veteran";
+                    }
+
                 } else{
                     CompletedRoute();
                 }
@@ -173,6 +191,12 @@ public class IntermediateMissionManager : MonoBehaviour
                     Time.timeScale = 0;
                     MissionFailed.SetActive(true);
                     Debug.Log("Mission Failed");
+                    losehoopScore.text = beginnerMission.hoopsScore.ToString();
+                    if (missionStarted)
+                    {
+                        missionDuration = Time.time - missionStartTime;
+                    }
+                    loseTime.text = missionDuration.ToString("F2");
                 } else{
                     CompletedRoute();
                 }

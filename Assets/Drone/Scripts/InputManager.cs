@@ -69,6 +69,7 @@ public class InputManager : MonoBehaviour
     private void OnCamSwitch(InputValue value)
     {
         _camSwitch = value.Get<float>();
+        Debug.Log(_camSwitch);
     }
 
 

@@ -27,10 +27,12 @@ public class B1MissionManager : MonoBehaviour
 
     [Header("Winning Screen UI")]
     public TMP_Text winhoopScore;
+    public TMP_Text winTime;
     public TMP_Text titleEarnedWin;
 
     [Header("Failed Screen UI")]
     public TMP_Text losehoopScore;
+    public TMP_Text loseTime;
 
 
     [Header("Variables")]
@@ -140,6 +142,8 @@ public class B1MissionManager : MonoBehaviour
                 missionDuration = Time.time - missionStartTime;   
             }
 
+            winTime.text = missionDuration.ToString("F2") + "s";
+
             if(beginnerMission.hoopsScore >= 14 && beginnerMission.hoopsScore <=17 && missionDuration <= 60)
             {
                 titleEarnedWin.text = "Novice";
@@ -156,6 +160,12 @@ public class B1MissionManager : MonoBehaviour
         {
             MissionFailed.SetActive(true);
             losehoopScore.text = beginnerMission.hoopsScore.ToString();
+            if (missionStarted)
+            {
+                missionDuration = Time.time - missionStartTime;   
+            }
+            loseTime.text = missionDuration.ToString("F2") + "s";
+            
             Debug.Log("losehoopScore: " + beginnerMission.hoopsScore.ToString());
             Time.timeScale = 0;
         }
