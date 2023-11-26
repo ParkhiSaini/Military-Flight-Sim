@@ -27,8 +27,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     void Start()
     {
         Debug.Log("Connecting to Master");
-        PhotonNetwork.ConnectUsingSettings();
-        
+        if (!PhotonNetwork.IsConnected){
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster()
@@ -61,7 +62,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         PhotonNetwork.CreateRoom(roomNameInputField.text);
         MenuManager.Instance.OpenMenu("loading");
-
     }
 
     public override void OnJoinedRoom()
@@ -141,6 +141,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+    }
+
+    public void DisconnectFromPhoton()
+    {
+        PhotonNetwork.Disconnect();
     }
 
 }

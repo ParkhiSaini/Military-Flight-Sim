@@ -48,9 +48,13 @@ public class B1MissionManager : MonoBehaviour
     private float missionStartTime;
     private float missionDuration;
 
+    GameManager gameManager;
+
+
     void Start()
     {
         input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
                 
     }
 
@@ -78,8 +82,7 @@ public class B1MissionManager : MonoBehaviour
         }
         if (input.Pause == 1.0f)
         {
-
-            pauseMenu.gameObject.SetActive(true);
+            Pause();
         }
         
         MissionEnded();
@@ -186,13 +189,20 @@ public class B1MissionManager : MonoBehaviour
     {
         paused = true;
         pauseMenu.gameObject.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     public void RestartMission()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
+    }
 
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+        paused = false;
+        pauseMenu.gameObject.SetActive(false);
     }
 
     public void BackToMainMenu()

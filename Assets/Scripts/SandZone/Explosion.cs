@@ -5,14 +5,23 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     
-    public ExposionTrigger trigger;
+    public ParticleSystem groundexplosion;
+    public AudioSource explosionSound;
+
+    void Start()
+    {
+        groundexplosion = GetComponentInChildren<ParticleSystem>();
+        explosionSound = GetComponent<AudioSource>();
+        groundexplosion.Stop();
+    }
 
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "Terrain")
         {
             
-            trigger.Exploded();
-            Destroy(gameObject,3);
+            groundexplosion.Play();
+            explosionSound.Play();
+            Destroy(gameObject,2);
             
         }
     

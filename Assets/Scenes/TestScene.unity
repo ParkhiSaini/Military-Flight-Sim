@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1167460438}
+  m_FirstSelected: {fileID: 2145563396}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &301867097
@@ -4270,7 +4270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &660685742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7362,7 +7362,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1117485251}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252514209}
+        m_TargetAssemblyTypeName: MultiMissionManager, Assembly-CSharp
+        m_MethodName: MultiplayerMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1117485251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7972,9 +7984,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OnButtonSound
+      - m_Target: {fileID: 252514209}
+        m_TargetAssemblyTypeName: MultiMissionManager, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15557,7 +15569,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2145563400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252514209}
+        m_TargetAssemblyTypeName: MultiMissionManager, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2145563400
 MonoBehaviour:
   m_ObjectHideFlags: 0

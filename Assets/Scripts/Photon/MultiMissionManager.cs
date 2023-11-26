@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class MultiMissionManager : MonoBehaviourPunCallbacks
 {
@@ -69,11 +70,10 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
         }else if (!countdownActive && drone!=null){
             drone.GetComponent<MultiplayerDroneController>().enabled = true;
         }
-        if(input.Pause == 1.0f && drone != null)
+        if(input.Pause == 1.0f && input != null)
         {
             Pause();
         }
-
         MissionEnded();
     }
 
@@ -81,7 +81,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
     {
         if (missionStarted)
         {
-            float currentTime = Time.time - missionStartTime;
+            float currentTime = Time.timeSinceLevelLoad - missionStartTime;
             string minutes = Mathf.Floor(currentTime / 60).ToString("00");
             string seconds = (currentTime % 60).ToString("00");
             timerText.text = "Time: " + minutes + ":" + seconds;
@@ -119,7 +119,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
 
                 if (missionStarted)
                 {
-                    missionDuration = Time.time - missionStartTime;
+                    missionDuration = Time.timeSinceLevelLoad - missionStartTime;
                 }
                 missionDuration = (float)System.Math.Round(missionDuration,2);
                 hoops.text =drone.GetComponent<ScoreSetter>().hoopsScore.ToString();
@@ -133,7 +133,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
 
                 if (missionStarted)
                 {
-                    missionDuration = Time.time - missionStartTime;
+                    missionDuration = Time.timeSinceLevelLoad - missionStartTime;
                 }
                 missionDuration = (float)System.Math.Round(missionDuration,2);
                 hoops.text =drone.GetComponent<ScoreSetter>().hoopsScore.ToString();
@@ -144,13 +144,28 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
     }
     public void Pause()
     {
-        paused = !paused;
-        if(paused){
-            Time.timeScale = 0;
-            PausePanel.gameObject.SetActive(true);
-        } else {
-            Time.timeScale = 1;
-            PausePanel.gameObject.SetActive(false);
-        }
+        paused = true;
+        PausePanel.SetActive(true);
     }
+
+    public void Resume()
+    {
+        paused = false;
+        PausePanel.SetActive(false);
+    }
+
+    public void MultiplayerMenu()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("RoomMenu");
+    }
+
+    public void MainMenu()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }

@@ -75,14 +75,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   
-
-
-
-
-
-
-
-
-
+    private void ResumeMusic()
+    {
+        if (!missionManager.paused)
+        {
+            bgMusic.Pause();
+        }
+    }
 }

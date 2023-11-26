@@ -14,24 +14,27 @@ public class HealthManager : MonoBehaviour
 
     private void Start()
     {
-        currentHealth=maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        if(healthBar!=null){
+            currentHealth=maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 
     public  void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Terrain"))
-        {
-            Debug.Log("Collided");
-            float collisionImpact = collision.relativeVelocity.magnitude;
-            float healthDepletion  = collisionImpact  *1.5f;
-            currentHealth -= healthDepletion;
-            currentHealth = Mathf.Max(currentHealth, 0 );
-            healthBar.SetHealth(currentHealth);
-
-            if (currentHealth<=0)
+        if(healthBar!=null){
+            if (collision.gameObject.CompareTag("Terrain"))
             {
-                DestroyDrone();
+                float collisionImpact = collision.relativeVelocity.magnitude;
+                float healthDepletion  = collisionImpact  *1.5f;
+                currentHealth -= healthDepletion;
+                currentHealth = Mathf.Max(currentHealth, 0 );
+                healthBar.SetHealth(currentHealth);
+
+                if (currentHealth<=0)
+                {
+                    DestroyDrone();
+                }
             }
         }
     }

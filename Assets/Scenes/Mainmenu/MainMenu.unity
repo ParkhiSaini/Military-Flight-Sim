@@ -156,7 +156,6 @@ RectTransform:
   - {fileID: 541690036}
   - {fileID: 651822038}
   - {fileID: 1186487173}
-  - {fileID: 535258874}
   m_Father: {fileID: 1946342107}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1845,131 +1844,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516968635}
   m_CullTransparentMesh: 1
---- !u!1001 &535258873
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 45133299}
-    m_Modifications:
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5011088148806081431, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-        type: 3}
-      propertyPath: m_Name
-      value: BIcon
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aa2b914ba4dd87d4a86624dd612b5eec, type: 3}
---- !u!224 &535258874 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3314333395804631185, guid: aa2b914ba4dd87d4a86624dd612b5eec,
-    type: 3}
-  m_PrefabInstance: {fileID: 535258873}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &541690035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +1947,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2666,9 +2540,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The Greens
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 634d2708b080b6a4b8fc64c848ef4a2d, type: 2}
-  m_sharedMaterial: {fileID: -4555323259149629301, guid: 634d2708b080b6a4b8fc64c848ef4a2d,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4516,9 +4389,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sand Zone
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 634d2708b080b6a4b8fc64c848ef4a2d, type: 2}
-  m_sharedMaterial: {fileID: -4555323259149629301, guid: 634d2708b080b6a4b8fc64c848ef4a2d,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5391,9 +5263,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Icy Mountains
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 634d2708b080b6a4b8fc64c848ef4a2d, type: 2}
-  m_sharedMaterial: {fileID: -4555323259149629301, guid: 634d2708b080b6a4b8fc64c848ef4a2d,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7210,7 +7081,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10534,6 +10405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011088148806081431, guid: aa2b914ba4dd87d4a86624dd612b5eec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2b914ba4dd87d4a86624dd612b5eec, type: 3}

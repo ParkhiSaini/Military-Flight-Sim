@@ -54,9 +54,12 @@ public class IntermediateMissionManager : MonoBehaviour
     public Transform spawnpoint;
     private Transform grandChildTransform;
 
+    GameManager gameManager;
+
     void Start()
     {
         input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void InitializeReferences()
@@ -207,6 +210,14 @@ public class IntermediateMissionManager : MonoBehaviour
     {
         paused = true;
         PausePanel.gameObject.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+        paused = false;
+        PausePanel.gameObject.SetActive(false);
     }
 
     public void OnHealthEnded(){
@@ -221,9 +232,8 @@ public class IntermediateMissionManager : MonoBehaviour
 
     public void RestartMission()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
-
     }
 
     public void BackToMainMenu()

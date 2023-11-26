@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Explore Mode/The Greens.unity
     guid: f17f1262f83edca4b9b7e3e8f24225d1
+  - enabled: 1
+    path: Assets/Scenes/Explore Mode/Icy Mountains 1.unity
+    guid: a809b46880e66374fa1082b0f0ad81fa
   m_configObjects: {}
