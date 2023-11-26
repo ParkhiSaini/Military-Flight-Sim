@@ -159,9 +159,9 @@ public class IntermediateMissionManager : MonoBehaviour
     public void MissionEnded()
     {
         if(selectedPickupObject != null && selectedLandingPad != null){
-            if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 30)
+            if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f)
             {
-                if(routeIndex == routes.Length - 1){
+                if(routeIndex == routes.Length - 1 && beginnerMission.hoopsScore >= 30){
                     Time.timeScale = 0;
                     MissionCompleted.SetActive(true);
                     if (missionStarted)
@@ -183,14 +183,11 @@ public class IntermediateMissionManager : MonoBehaviour
                         titleEarnedWin.text = "Veteran";
                     }
 
-                } else{
+                } else if(routeIndex < routes.Length - 1){
                     CompletedRoute();
                 }
-            }
-            else if (Vector3.Distance(selectedPickupObject.transform.position, selectedLandingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 2)
-            {
+                else if (routeIndex == routes.Length - 1 && beginnerMission.hoopsScore < 30){
                 
-                if(routeIndex == routes.Length){
                     MissionFailed.SetActive(true);
                     Time.timeScale = 0;
                     losehoopScore.text = beginnerMission.hoopsScore.ToString();
@@ -199,8 +196,6 @@ public class IntermediateMissionManager : MonoBehaviour
                         missionDuration = Time.time - missionStartTime;
                     }
                     loseTime.text = missionDuration.ToString("F2");
-                } else{
-                    CompletedRoute();
                 }
             }
         }
@@ -243,7 +238,7 @@ public class IntermediateMissionManager : MonoBehaviour
     }
 
     public void PrevLevel(){
-        SceneManager.LoadScene("TrainingGround");
+        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex - 2);
         // Time.timeScale = 1.0f;
     }
 
