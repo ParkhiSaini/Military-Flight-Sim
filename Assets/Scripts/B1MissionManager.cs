@@ -212,12 +212,12 @@ public class B1MissionManager : MonoBehaviour
     }
 
     public void NextLevel(){
-        SceneManager.LoadScene("Intermediate");
+        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
         // Time.timeScale = 1.0f;
     }
 
     public void PrevLevel(){
-        SceneManager.LoadScene("TrainingGround");
+        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex - 1);
         // Time.timeScale = 1.0f;
     }
 
