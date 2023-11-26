@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.EventSystems;
 public class TutorialManager : MonoBehaviour
 {
     #region Variables
@@ -17,7 +17,13 @@ public class TutorialManager : MonoBehaviour
     private GameManager gameManager;
     public GameObject pauseMenu;
     public GameObject WinningPanel;
- 
+
+    [Header("First Selected Buttons")]
+    [SerializeField] private GameObject _pauseMenuFirst;
+    [SerializeField] private GameObject _completionMenuFirst;
+
+
+
 
 
     #endregion
@@ -34,7 +40,9 @@ public class TutorialManager : MonoBehaviour
         ManagePopUps();
         if (input.Pause == 1.0f)
         {
+            
             pauseMenu.gameObject.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
             Time.timeScale = 0f;
         }
    
@@ -91,6 +99,7 @@ public class TutorialManager : MonoBehaviour
                 {
                     popUpIndex++;
                     WinningPanel.gameObject.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(_completionMenuFirst);
                     Time.timeScale = 0f;
 
                 }
