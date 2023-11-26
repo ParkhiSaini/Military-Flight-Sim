@@ -4302,7 +4302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &656592531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6112,7 +6112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 912806657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252514209}
+        m_TargetAssemblyTypeName: MultiMissionManager, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &912806657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7676,6 +7688,81 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2059538139}
     m_Modifications:
+    - target: {fileID: 8037325255730684925, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_text
+      value: RESTART
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325255730684925, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256490679634, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 252514209}
+    - target: {fileID: 8037325256490679634, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MultiplayerMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256490679634, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MultiMissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256629176513, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 252514209}
+    - target: {fileID: 8037325256629176513, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037325256629176513, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MultiMissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888292826459, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 252514209}
+    - target: {fileID: 8757542888292826459, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MultiplayerMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888292826459, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MultiMissionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888292826471, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_Name
+      value: multiplayermenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888413233679, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_text
+      value: Back to MULTIPLAYER MENU
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888413233679, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -40.71237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757542888413233679, guid: e3d6bc8c6de32eb459935b7350f503db,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 8757542889297842602, guid: e3d6bc8c6de32eb459935b7350f503db,
         type: 3}
       propertyPath: m_Name
@@ -9886,6 +9973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winning Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280979583134332977, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76a320636e8c2b445b3e2c9c0b8b10de, type: 3}
@@ -15401,7 +15493,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2132053310}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 252514209}
+        m_TargetAssemblyTypeName: MultiMissionManager, Assembly-CSharp
+        m_MethodName: MultiplayerMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2132053310
 MonoBehaviour:
   m_ObjectHideFlags: 0
