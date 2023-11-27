@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
+// using UnityEngine.EventSystems;
 
 public class B1MissionManager : MonoBehaviour
 {
@@ -54,10 +54,10 @@ public class B1MissionManager : MonoBehaviour
 
     GameManager gameManager;
 
-    [Header("First Selected Buttons")]
-    [SerializeField] private GameObject _pauseMenuFirst;
-    [SerializeField] private GameObject _completionMenuFirst;
-    [SerializeField] private GameObject _failedMenuFirst;
+    // [Header("First Selected Buttons")]
+    // [SerializeField] private GameObject _pauseMenuFirst;
+    // [SerializeField] private GameObject _completionMenuFirst;
+    // [SerializeField] private GameObject _failedMenuFirst;
 
 
 
@@ -65,7 +65,6 @@ public class B1MissionManager : MonoBehaviour
     {
         input = GameObject.Find("CargoDrone").GetComponent<InputManager>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-                
     }
 
     public void InitializeReferences()
@@ -143,7 +142,7 @@ public class B1MissionManager : MonoBehaviour
     public void MissionEnded()
     {
         if(drone != null){
-            if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 1)
+            if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 15)
             {
                 
                 Time.timeScale = 0;
@@ -192,8 +191,8 @@ public class B1MissionManager : MonoBehaviour
 
     public void OnHealthEnded(){
         MissionFailed.SetActive(true);
-        var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(_failedMenuFirst);
+        // var eventSystem = EventSystem.current;
+        // eventSystem.SetSelectedGameObject(_failedMenuFirst);
         losehoopScore.text = beginnerMission.hoopsScore.ToString();
         if (missionStarted)
         {
@@ -204,8 +203,8 @@ public class B1MissionManager : MonoBehaviour
     public void Pause()
     {
         paused = true;
-        pauseMenu.gameObject.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
+        // pauseMenu.gameObject.SetActive(true);
+        // EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
         Time.timeScale = 0.0f;
     }
 
@@ -229,13 +228,14 @@ public class B1MissionManager : MonoBehaviour
     }
 
     public void NextLevel(){
-        gameManager.LoadLevel(5);
-        // Time.timeScale = 1.0f;
+        int nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
+        gameManager.LoadLevel(nextLevel);
+        Time.timeScale = 1.0f;
     }
 
     public void PrevLevel(){
         gameManager.LoadLevel(3);
-        // Time.timeScale = 1.0f;
+        Time.timeScale = 1.0f;
     }
 
     // private void SetButton( )

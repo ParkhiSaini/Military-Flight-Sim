@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         };
     }
 
-    private void InitializeMissionsForLevel(int levelIndex)
+    public void InitializeMissionsForLevel(int levelIndex)
     {
         switch (levelIndex)
         {

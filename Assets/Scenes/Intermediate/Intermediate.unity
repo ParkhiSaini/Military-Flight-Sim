@@ -6030,7 +6030,7 @@ PrefabInstance:
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59.63005
+      value: 60.47
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
@@ -6040,27 +6040,27 @@ PrefabInstance:
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.898993
+      value: 12.05
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6562949
+      value: 0.9331495
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25283286
+      value: 0.35948864
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6633586
+      value: -0.000000016056129
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25555414
+      value: 0.0000000061854983
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
@@ -9686,8 +9686,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396246356}
-  m_LocalRotation: {x: 0.25283286, y: 0.6633586, z: -0.25555414, w: 0.6562949}
-  m_LocalPosition: {x: 59.63005, y: 0.74, z: 12.898993}
+  m_LocalRotation: {x: 0.35948864, y: -0.000000016056129, z: 0.0000000061854983, w: 0.9331495}
+  m_LocalPosition: {x: 60.47, y: 0.74, z: 12.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10388,7 +10388,7 @@ MonoBehaviour:
   positiveXLimit: 160
   negativeXLimit: -1
   positiveZLimit: 255
-  negativeZLimit: 13
+  negativeZLimit: 9
 --- !u!1001 &1488487252
 PrefabInstance:
   m_ObjectHideFlags: 0

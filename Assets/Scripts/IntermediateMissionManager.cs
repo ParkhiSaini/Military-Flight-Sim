@@ -131,7 +131,6 @@ public class IntermediateMissionManager : MonoBehaviour
                 countdownText.gameObject.SetActive(false);
                 yield return new WaitForSeconds(1.0f);
                 takeoffText.gameObject.SetActive(false);
-
                 HealthBar.gameObject.SetActive(true);
                 missionStarted = true;
                 missionStartTime = Time.time;

@@ -12,11 +12,13 @@ public class LoadingScreen : MonoBehaviour
     public TextMeshProUGUI progressText;
     public TextMeshProUGUI progressPercent;
     public float minLoadTime = 3f; // Set the minimum load time to 3 seconds
+    public GameManager gameManager;
 
     private bool loadingStarted = false;
 
     public void LoadLevel(int sceneIndex)
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (!loadingStarted)
         {
             StartCoroutine(LoadWithMinimumTime(sceneIndex));
@@ -62,6 +64,11 @@ public class LoadingScreen : MonoBehaviour
 
             yield return null;
         }
+
+        operation.completed += (x) =>
+        {
+            gameManager.InitializeMissionsForLevel(sceneIndex);
+        };
 
         // Hide the loading screen after the operation is complete
         loadingScreen.SetActive(false);
