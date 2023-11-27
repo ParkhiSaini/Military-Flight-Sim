@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 public class B1MissionManager : MonoBehaviour
 {
     [Header("On Screen UI")]
@@ -14,13 +16,14 @@ public class B1MissionManager : MonoBehaviour
     [Header("GameObjects")]
     public GameObject drone;
     public GameObject landingPad;
-    public GameObject MissionCompleted;
-    public GameObject MissionFailed;
-    public GameObject pauseMenu;
     public GameObject instructions;
     public GameObject HealthBar;
 
-    public TMP_Text hoopScore;
+    [Header("Panels")]
+    public GameObject MissionCompleted;
+    public GameObject MissionFailed;
+    public GameObject pauseMenu;
+    
 
     [Header("References")]
     public InputManager input;
@@ -42,6 +45,7 @@ public class B1MissionManager : MonoBehaviour
     public GameObject[] rings;
     private Transform grandChildTransform;
     public bool paused =false;
+    public TMP_Text hoopScore;
 
     // Timer variables
     private bool missionStarted = false;
@@ -49,6 +53,12 @@ public class B1MissionManager : MonoBehaviour
     private float missionDuration;
 
     GameManager gameManager;
+
+    [Header("First Selected Buttons")]
+    [SerializeField] private GameObject _pauseMenuFirst;
+    [SerializeField] private GameObject _completionMenuFirst;
+    [SerializeField] private GameObject _failedMenuFirst;
+
 
 
     void Start()
@@ -133,11 +143,13 @@ public class B1MissionManager : MonoBehaviour
     public void MissionEnded()
     {
         if(drone != null){
-            if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 15)
+            if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore >= 1)
             {
                 
                 Time.timeScale = 0;
                 MissionCompleted.SetActive(true);
+                // SetButton();
+                
                 hoopScore.text = beginnerMission.hoopsScore.ToString();
 
             
@@ -163,6 +175,8 @@ public class B1MissionManager : MonoBehaviour
             else if (Vector3.Distance(drone.transform.position, landingPad.transform.position) < 1.0f && beginnerMission.hoopsScore < 15)
             {
                 MissionFailed.SetActive(true);
+                // var eventSystem = EventSystem.current;
+                // eventSystem.SetSelectedGameObject(_failedMenuFirst);
                 losehoopScore.text = beginnerMission.hoopsScore.ToString();
                 if (missionStarted)
                 {
@@ -178,6 +192,8 @@ public class B1MissionManager : MonoBehaviour
 
     public void OnHealthEnded(){
         MissionFailed.SetActive(true);
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(_failedMenuFirst);
         losehoopScore.text = beginnerMission.hoopsScore.ToString();
         if (missionStarted)
         {
@@ -189,6 +205,7 @@ public class B1MissionManager : MonoBehaviour
     {
         paused = true;
         pauseMenu.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
         Time.timeScale = 0.0f;
     }
 
@@ -212,13 +229,19 @@ public class B1MissionManager : MonoBehaviour
     }
 
     public void NextLevel(){
-        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        gameManager.LoadLevel(5);
         // Time.timeScale = 1.0f;
     }
 
     public void PrevLevel(){
-        gameManager.LoadLevel(SceneManager.GetActiveScene().buildIndex - 1);
+        gameManager.LoadLevel(3);
         // Time.timeScale = 1.0f;
     }
+
+    // private void SetButton( )
+    // {
+    //     var eventSystem = EventSystem.current;
+    //     eventSystem.SetSelectedGameObject(_completionMenuFirst, new BaseEventData(Evenet));
+    // }
 
 }

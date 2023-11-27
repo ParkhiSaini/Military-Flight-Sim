@@ -212,6 +212,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20935994, y: 0.10241014, z: 0.17995657}
   m_Center: {x: -0.19872603, y: 0.18680634, z: -0.11105828}
+--- !u!1 &24201666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1280979583332930812, guid: 76a320636e8c2b445b3e2c9c0b8b10de,
+    type: 3}
+  m_PrefabInstance: {fileID: 1488487252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &35509737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1434,6 +1440,9 @@ MonoBehaviour:
   beginnerMission: {fileID: 390540217}
   paused: 0
   spawnpoint: {fileID: 951163047}
+  _pauseMenuFirst: {fileID: 207917588}
+  _completionMenuFirst: {fileID: 24201666}
+  _failedMenuFirst: {fileID: 1595125474}
 --- !u!4 &141632427
 Transform:
   m_ObjectHideFlags: 0
@@ -1531,6 +1540,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20935994, y: 0.10241014, z: 0.17995657}
   m_Center: {x: -0.19873366, y: 0.18680872, z: -0.111023955}
+--- !u!1 &207917588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1993128578236785320, guid: 6bdbc42901c147f408075472f222077a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3899925010266026940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &210203503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6030,22 +6045,22 @@ PrefabInstance:
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.656295
+      value: 0.6562949
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25283292
+      value: 0.25283286
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.66335857
+      value: 0.6633586
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25555405
+      value: -0.25555414
       objectReference: {fileID: 0}
     - target: {fileID: 2410868986548765899, guid: b9a14e857483af54192899676d7b5b93,
         type: 3}
@@ -9671,7 +9686,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396246356}
-  m_LocalRotation: {x: 0.25283292, y: 0.66335857, z: -0.25555405, w: 0.656295}
+  m_LocalRotation: {x: 0.25283286, y: 0.6633586, z: -0.25555414, w: 0.6562949}
   m_LocalPosition: {x: 59.63005, y: 0.74, z: 12.898993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11180,6 +11195,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.20935994, y: 0.10241014, z: 0.17995657}
   m_Center: {x: -0.19873366, y: 0.18680777, z: -0.111023955}
+--- !u!1 &1595125474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8037325256629176515, guid: e3d6bc8c6de32eb459935b7350f503db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1150007599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1596859400
 GameObject:
   m_ObjectHideFlags: 0
@@ -14867,14 +14888,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1993128577729787878, guid: 6bdbc42901c147f408075472f222077a,
         type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fd8e188b9c794e45addab5bf722656a,
+        type: 3}
+    - target: {fileID: 1993128577729787878, guid: 6bdbc42901c147f408075472f222077a,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 141632426}
     - target: {fileID: 1993128578236785322, guid: 6bdbc42901c147f408075472f222077a,
         type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fd8e188b9c794e45addab5bf722656a,
+        type: 3}
+    - target: {fileID: 1993128578236785322, guid: 6bdbc42901c147f408075472f222077a,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 141632426}
+    - target: {fileID: 1993128578412579048, guid: 6bdbc42901c147f408075472f222077a,
+        type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1fd8e188b9c794e45addab5bf722656a,
+        type: 3}
     - target: {fileID: 1993128578412579048, guid: 6bdbc42901c147f408075472f222077a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class IntermediateMissionManager : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class IntermediateMissionManager : MonoBehaviour
     private Transform grandChildTransform;
 
     GameManager gameManager;
+
+    [Header("First Selected Buttons")]
+    [SerializeField] private GameObject _pauseMenuFirst;
+    [SerializeField] private GameObject _completionMenuFirst;
+    [SerializeField] private GameObject _failedMenuFirst;
 
     void Start()
     {
@@ -164,6 +170,7 @@ public class IntermediateMissionManager : MonoBehaviour
                 if(routeIndex == routes.Length - 1 && beginnerMission.hoopsScore >= 30){
                     Time.timeScale = 0;
                     MissionCompleted.SetActive(true);
+                    EventSystem.current.SetSelectedGameObject(_completionMenuFirst);
                     if (missionStarted)
                     {
                         missionDuration = Time.time - missionStartTime;
@@ -205,6 +212,7 @@ public class IntermediateMissionManager : MonoBehaviour
     {
         paused = true;
         PausePanel.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_pauseMenuFirst);
         Time.timeScale = 0.0f;
     }
 
@@ -217,6 +225,7 @@ public class IntermediateMissionManager : MonoBehaviour
 
     public void OnHealthEnded(){
         MissionFailed.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(_failedMenuFirst);
         losehoopScore.text = beginnerMission.hoopsScore.ToString();
         if (missionStarted)
         {
