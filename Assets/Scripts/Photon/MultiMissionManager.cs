@@ -81,7 +81,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
     {
         if (missionStarted)
         {
-            float currentTime = Time.timeSinceLevelLoad - missionStartTime;
+            float currentTime = Time.timeScale - missionStartTime;
             string minutes = Mathf.Floor(currentTime / 60).ToString("00");
             string seconds = (currentTime % 60).ToString("00");
             timerText.text = "Time: " + minutes + ":" + seconds;
@@ -119,7 +119,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
 
                 if (missionStarted)
                 {
-                    missionDuration = Time.timeSinceLevelLoad - missionStartTime;
+                    missionDuration = Time.timeScale - missionStartTime;
                 }
                 missionDuration = (float)System.Math.Round(missionDuration,2);
                 hoops.text =drone.GetComponent<ScoreSetter>().hoopsScore.ToString();
@@ -133,7 +133,7 @@ public class MultiMissionManager : MonoBehaviourPunCallbacks
 
                 if (missionStarted)
                 {
-                    missionDuration = Time.timeSinceLevelLoad - missionStartTime;
+                    missionDuration = Time.timeScale - missionStartTime;
                 }
                 missionDuration = (float)System.Math.Round(missionDuration,2);
                 hoops.text =drone.GetComponent<ScoreSetter>().hoopsScore.ToString();
